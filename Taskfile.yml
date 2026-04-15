@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  test:
+    desc: Run tests. Pass a pattern with `task test -- <pattern>`
+    cmds:
+      - npx jest {{.CLI_ARGS}}
+
+  test:watch:
+    desc: Run tests in watch mode
+    cmds:
+      - npx jest --watch {{.CLI_ARGS}}
