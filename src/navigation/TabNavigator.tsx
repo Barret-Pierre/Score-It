@@ -1,7 +1,7 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "@/screens/HomeScreen";
-import SettingsScreen from "@/screens/SettingsScreen";
-import { TabParamList } from "@/types/navigation.types";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from '@/screens/HomeScreen';
+import SettingsScreen from '@/screens/SettingsScreen';
+import { TabParamList } from '@/types/navigation.types';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 

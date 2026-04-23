@@ -1,6 +1,6 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TabNavigator from "@/navigation/TabNavigator";
-import { RootStackParamList } from "@/types/navigation.types";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TabNavigator from '@/navigation/TabNavigator';
+import { RootStackParamList } from '@/types/navigation.types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

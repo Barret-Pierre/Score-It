@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from 'react';
 
 type AppContextType = {
   // Add global state later
@@ -12,7 +12,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
 export function useAppContext() {
   const context = useContext(AppContext);
-  if (!context)
-    throw new Error("useAppContext must be used within AppProvider");
+  if (!context) throw new Error('useAppContext must be used within AppProvider');
   return context;
 }
