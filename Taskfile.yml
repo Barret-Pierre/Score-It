@@ -10,3 +10,13 @@ tasks:
     desc: Run tests in watch mode
     cmds:
       - npx jest --watch {{.CLI_ARGS}}
+
+  lint:
+    desc: Run ESLint
+    cmds:
+      - npm run lint
+
+  lint:fix:
+    desc: Run ESLint and fix auto-fixable issues
+    cmds:
+      - npm run lint -- --fix
