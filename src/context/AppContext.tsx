@@ -1,8 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 
-type AppContextType = {
-  // Add global state later
-};
+type AppContextType = object;
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 

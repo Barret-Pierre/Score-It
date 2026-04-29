@@ -11,6 +11,11 @@ tasks:
     cmds:
       - npx jest --watch {{.CLI_ARGS}}
 
+  test:ci:
+    desc: Run tests in ci mode
+    cmds:
+      - npx jest --coverage --ci
+
   lint:
     desc: Run ESLint
     cmds:
