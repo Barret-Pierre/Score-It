@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - run: npm run lint
 
   typecheck:
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - run: npm run typecheck
 
   test:
@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
-      - run: npm ci --legacy-peer-deps
+      - run: npm ci
       - run: npm run test:ci
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
