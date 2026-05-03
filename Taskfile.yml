@@ -25,3 +25,12 @@ tasks:
     desc: Run ESLint and fix auto-fixable issues
     cmds:
       - npm run lint -- --fix
+
+  release:bump:
+    desc: "Bump version in all config files. Usage: task release:bump -- 0.2.0"
+    cmds:
+      - npm version {{.CLI_ARGS}} --no-git-tag-version
+      - |
+        sed -i '' 's/"version": ".*"/"version": "{{.CLI_ARGS}}"/' app.json
+      - |
+        sed -i '' 's/sonar.projectVersion=.*/sonar.projectVersion={{.CLI_ARGS}}/' sonar-project.properties
