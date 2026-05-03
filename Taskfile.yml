@@ -1,0 +1,36 @@
+version: "3"
+
+tasks:
+  test:
+    desc: Run tests. Pass a pattern with `task test -- <pattern>`
+    cmds:
+      - npx jest {{.CLI_ARGS}}
+
+  test:watch:
+    desc: Run tests in watch mode
+    cmds:
+      - npx jest --watch {{.CLI_ARGS}}
+
+  test:ci:
+    desc: Run tests in ci mode
+    cmds:
+      - npx jest --coverage --ci
+
+  lint:
+    desc: Run ESLint
+    cmds:
+      - npm run lint
+
+  lint:fix:
+    desc: Run ESLint and fix auto-fixable issues
+    cmds:
+      - npm run lint -- --fix
+
+  release:bump:
+    desc: "Bump version in all config files. Usage: task release:bump -- 0.2.0"
+    cmds:
+      - npm version {{.CLI_ARGS}} --no-git-tag-version
+      - |
+        sed -i '' 's/"version": ".*"/"version": "{{.CLI_ARGS}}"/' app.json
+      - |
+        sed -i '' 's/sonar.projectVersion=.*/sonar.projectVersion={{.CLI_ARGS}}/' sonar-project.properties
