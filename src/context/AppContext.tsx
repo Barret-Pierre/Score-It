@@ -1,11 +1,12 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useMemo } from 'react';
 
 type AppContextType = object;
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export function AppProvider({ children }: { children: ReactNode }) {
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>;
+export function AppProvider({ children }: Readonly<{ children: ReactNode }>) {
+  const value = useMemo(() => ({}), []);
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
 export function useAppContext() {
