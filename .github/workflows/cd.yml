@@ -6,9 +6,11 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
-  deploy-preview:
+  build:
     name: Deploy Preview (Android)
     runs-on: ubuntu-latest
+    outputs:
+      build_url: ${{ steps.eas-build.outputs.build_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,6 +19,34 @@ jobs:
           cache: "npm"
       - run: npm install -g eas-cli
       - run: npm ci
-      - run: eas build --platform android --profile preview --non-interactive
+      - name: Build Android Preview
+        id: eas-build
+        run: |
+          BUILD_URL=$(eas build --platform android --profile preview --non-interactive --wait --json | jq -r '.[0].artifacts.buildUrl')
+          echo "build_url=$BUILD_URL" >> $GITHUB_OUTPUT
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: write
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Release ${{ github.ref_name }}"
+          generate_release_notes: true
+          body: |
+            ## Install Preview
+
+            Scan the QR code to install on Android:
+
+            ![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${{ needs.build.outputs.build_url }})
+
+            ⬇️ [Direct download](${{ needs.build.outputs.build_url }})
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
