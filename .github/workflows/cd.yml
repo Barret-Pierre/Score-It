@@ -42,11 +42,9 @@ jobs:
           generate_release_notes: true
           body: |
             ## Install Preview
-
             Scan the QR code to install on Android:
 
             ![QR Code](https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${{ needs.build.outputs.build_url }})
-
             ⬇️ [Direct download](${{ needs.build.outputs.build_url }})
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
