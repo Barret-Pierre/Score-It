@@ -11,6 +11,7 @@ Built with Expo & React Native.
 | [Expo](https://expo.dev) (managed workflow)                                                                        | Build & development toolchain      |
 | [React Native](https://reactnative.dev)                                                                            | Cross-platform mobile UI           |
 | [TypeScript](https://www.typescriptlang.org)                                                                       | Static typing                      |
+| [Styled Components](https://styled-components.com/)                                                                | Theme and styles                   |
 | [React Navigation](https://reactnavigation.org)                                                                    | Stack & bottom tab navigation      |
 | [React Hook Form](https://react-hook-form.com)                                                                     | Form state management              |
 | [Zod](https://zod.dev)                                                                                             | Schema validation & type inference |
@@ -57,6 +58,7 @@ src/
 │ ├── HomeScreen.tsx
 │ └── SettingsScreen.tsx
 ├── hooks/
+├── theme/ # Theme configurations
 ├── types/
 │ └── navigation.types.ts # Route param types
 └── utils/ # Shared utilities
