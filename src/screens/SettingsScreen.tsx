@@ -1,13 +1,22 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useTheme } from '@/context/ThemeContext';
+import * as Styled from './SettingsScreen.styles';
 
 export default function SettingsScreen() {
+  const { themeMode, toggleTheme } = useTheme();
+
   return (
-    <View style={styles.container}>
-      <Text>Settings</Text>
-    </View>
+    <Styled.Container>
+      <Styled.Title>Settings</Styled.Title>
+
+      <Styled.ThemeInfo>
+        Thème actuel : {themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}
+      </Styled.ThemeInfo>
+
+      <Styled.ThemeButton onPress={toggleTheme}>
+        <Styled.ButtonText>
+          Basculer vers {themeMode === 'light' ? 'Dark' : 'Light'}
+        </Styled.ButtonText>
+      </Styled.ThemeButton>
+    </Styled.Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-});

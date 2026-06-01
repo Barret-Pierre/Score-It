@@ -1,13 +1,9 @@
-import { View, Text, StyleSheet } from 'react-native';
+import * as Styled from './HomeScreen.styles';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
+    <Styled.Container>
+      <Styled.Title>Home</Styled.Title>
+    </Styled.Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-});

@@ -3,9 +3,16 @@ module.exports = {
   testMatch: ['**/tests/**/*.spec.{ts,tsx}'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@tests/(.*)$': '<rootDir>/tests/$1',
   },
-  collectCoverage: false, // désactivé par défaut, activé via --coverage en CI
+  collectCoverage: false,
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.types.ts', '!src/domain/models/**'],
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.types.ts',
+    '!src/**/*.d.ts',
+    '!src/domain/models/**',
+    '!src/**/*.styles.ts',
+  ],
 };
