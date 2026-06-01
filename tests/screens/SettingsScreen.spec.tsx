@@ -3,12 +3,9 @@ import SettingsScreen from '@/screens/SettingsScreen';
 import { renderWithProviders } from '@tests/utils/render.utils';
 
 describe('SettingsScreen', () => {
-  it('should render without error', () => {
+  it('should render and display "Settings" text', () => {
     renderWithProviders(<SettingsScreen />);
-  });
-  it('should show "Settings" text', () => {
-    renderWithProviders(<SettingsScreen />);
-    expect(screen.getAllByText('Settings')).toBeTruthy();
+    expect(screen.getByText('Settings')).toBeTruthy();
   });
 
   it('should display light theme by default', () => {

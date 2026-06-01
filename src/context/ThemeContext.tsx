@@ -1,26 +1,23 @@
-import React, { createContext, useContext, useState, type ReactNode } from 'react';
+import React, { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
 import { lightTheme, darkTheme } from '@/theme/theme';
 import { ThemeContextType, ThemeMode } from '@/types/theme.types';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+export function ThemeProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [themeMode, setThemeMode] = useState<ThemeMode>('light');
 
   const toggleTheme = () => {
     setThemeMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  const value = useMemo(() => ({ themeMode, toggleTheme }), [themeMode]);
+
   const theme = themeMode === 'light' ? lightTheme : darkTheme;
 
   return (
-    <ThemeContext.Provider
-      value={{
-        themeMode,
-        toggleTheme,
-      }}
-    >
+    <ThemeContext.Provider value={value}>
       <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
     </ThemeContext.Provider>
   );

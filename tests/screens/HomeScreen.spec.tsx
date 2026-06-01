@@ -3,11 +3,8 @@ import { renderWithProviders } from '@tests/utils/render.utils';
 import HomeScreen from '@/screens/HomeScreen';
 
 describe('HomeScreen', () => {
-  it('should render without error', () => {
+  it('should render and display "Home" text', () => {
     renderWithProviders(<HomeScreen />);
-  });
-  it('should show "Home" text', () => {
-    renderWithProviders(<HomeScreen />);
-    expect(screen.getAllByText('Home')).toBeTruthy();
+    expect(screen.getByText('Home')).toBeTruthy();
   });
 });
