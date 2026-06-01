@@ -9,6 +9,7 @@ module.exports = function babelConfig(api) {
           root: ['./src'],
           alias: {
             '@': './src',
+            '@tests': './tests',
           },
         },
       ],

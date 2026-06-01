@@ -51,7 +51,7 @@ export const darkTheme: DefaultTheme = {
     error: '#FF453A',
     success: '#32D74B',
   },
-  spacing: lightTheme.spacing, // Les espacements restent identiques
-  typography: lightTheme.typography, // La typographie reste identique
-  borderRadius: lightTheme.borderRadius, // Les border radius restent identiques
+  spacing: lightTheme.spacing,
+  typography: lightTheme.typography,
+  borderRadius: lightTheme.borderRadius,
 };
