@@ -13,6 +13,7 @@ module.exports = {
     '!src/**/*.types.ts',
     '!src/**/*.d.ts',
     '!src/domain/models/**',
+    '!src/theme/**',
     '!src/**/*.styles.ts',
   ],
 };
