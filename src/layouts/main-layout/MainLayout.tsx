@@ -1,10 +1,6 @@
-import { ReactNode } from 'react';
-import { Header } from '@/components/header/';
 import * as Styled from './MainLayout.styles';
-
-interface MainLayoutProps {
-  children: ReactNode;
-}
+import { Header } from '@/components/header/';
+import { MainLayoutProps } from '@/types/layout.types';
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
