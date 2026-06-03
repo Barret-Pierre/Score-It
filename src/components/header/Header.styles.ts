@@ -3,7 +3,6 @@ import { styled } from 'styled-components/native';
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.semantic.header.bg};
   padding: ${({ theme }) => theme.semantic.header.padding}px;
-  align-items: center;
 `;
 
 export const Title = styled.Text`
