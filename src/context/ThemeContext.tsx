@@ -28,5 +28,7 @@ export function useTheme() {
   if (!context) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
-  return context;
+  const { themeMode, toggleTheme } = context;
+  const theme = themeMode === 'light' ? lightTheme : darkTheme;
+  return { themeMode, toggleTheme, theme };
 }

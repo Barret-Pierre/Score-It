@@ -139,6 +139,7 @@ export const icon = {
 export const divider = {
   color: primitives.colors.graphite[50],
   weight: primitives.border.weight[2],
+  borderRadius: primitives.radius.full,
 } as const;
 
 export const header = {
