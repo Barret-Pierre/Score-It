@@ -1,9 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '@/screens/HomeScreen';
-import SettingsScreen from '@/screens/SettingsScreen';
+import { HomeScreen, SettingsScreen } from '@/screens';
+import { MainLayout } from '@/layouts';
 import { TabParamList } from '@/types/navigation.types';
-import MainLayout from '@/layouts/main-layout/MainLayout';
-import CustomTabBar from '@/components/custom-tab-bar/CustomTabBar';
+import { CustomTabBar } from '@/components';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
