@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { Home, Settings } from 'lucide-react-native';
+import { LayoutDashboard, Settings } from 'lucide-react-native';
 import { Divider } from '@/components/ui';
 import { useTheme } from '@/context/ThemeContext';
 import * as Styled from './CustomTabBar.styles';
@@ -14,7 +14,7 @@ export default function CustomTabBar({ state, navigation }: BottomTabBarProps) {
 
     switch (routeName) {
       case 'Home':
-        return <Home color={color} size={size} />;
+        return <LayoutDashboard color={color} size={size} />;
       case 'Settings':
         return <Settings color={color} size={size} />;
       default:
