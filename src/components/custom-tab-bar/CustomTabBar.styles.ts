@@ -8,13 +8,3 @@ export const Container = styled.View`
   padding-top: ${({ theme }) => theme.semantic.bottom.padding}px;
   padding-bottom: ${({ theme }) => theme.semantic.bottom.padding}px;
 `;
-
-interface TabButtonProps {
-  isFocused: boolean;
-}
-
-export const TabButton = styled.TouchableOpacity<TabButtonProps>`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;

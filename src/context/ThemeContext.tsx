@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
 import { lightTheme, darkTheme } from '@/theme/theme';
-import { ThemeContextType, ThemeMode } from '@/types/theme.types';
+import { ThemeContextType, ThemeMode } from '@/types/theme';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 

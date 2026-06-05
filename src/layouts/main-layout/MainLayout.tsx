@@ -1,6 +1,6 @@
 import * as Styled from './MainLayout.styles';
 import { Header } from '@/components';
-import { MainLayoutProps } from '@/types/layout.types';
+import { MainLayoutProps } from '@/types/layout';
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
