@@ -5,5 +5,5 @@ interface DividerProps {
 }
 
 export default function Divider({ vertical = false }: DividerProps) {
-  return <Styled.Line vertical={vertical} />;
+  return <Styled.Line testID="divider" vertical={vertical} />;
 }
