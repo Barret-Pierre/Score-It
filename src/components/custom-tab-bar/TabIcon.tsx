@@ -8,5 +8,5 @@ export function TabIcon({ routeName, color, size }: TabIconProps) {
     return null;
   }
 
-  return <IconComponent testID="tab-icon" color={color} size={size} />;
+  return <IconComponent color={color} size={size} />;
 }

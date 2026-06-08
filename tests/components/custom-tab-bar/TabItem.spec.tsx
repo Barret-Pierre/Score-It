@@ -1,15 +1,15 @@
 import { fireEvent, screen } from '@testing-library/react-native';
 import { renderWithProviders } from '@tests/utils/render.utils';
 import { TabItem, getIconColor } from '@/components/custom-tab-bar/TabItem';
-import { DefaultTheme } from 'styled-components/native';
-
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+import { lightTheme } from '@/theme/theme';
 
 describe('TabItem', () => {
   const mockRoute = { key: 'home', name: 'Home' };
   const mockOnPress = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('renders correctly with default props', () => {
     renderWithProviders(
@@ -48,14 +48,11 @@ describe('TabItem', () => {
 });
 
 describe('getIconColor', () => {
-  const mockTheme: DefaultTheme = {
-    semantic: {
-      icon: {
-        focused: '#FF006E',
-        unfocused: '#CCCCCC',
-      },
-    },
-  } as DefaultTheme;
+  const mockTheme = lightTheme;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('should return focused color when isFocused is true', () => {
     const color = getIconColor(true, mockTheme);
