@@ -3,9 +3,24 @@ import * as Styled from './CustomTabBar.styles';
 import { TabItem } from './TabItem';
 import { useCallback } from 'react';
 
-export default function CustomTabBar({ state, navigation }: BottomTabBarProps) {
+type Route = {
+  key: string;
+  name: string;
+};
+
+type CustomTabBarProps = {
+  state: {
+    routes: Route[];
+    index: number;
+  };
+  navigation: {
+    navigate: (name: string) => void;
+  };
+};
+
+export default function CustomTabBar({ state, navigation }: CustomTabBarProps) {
   const handleTabPress = useCallback(
-    (route: { key: string; name: string }, isFocused: boolean) => {
+    (route: Route, isFocused: boolean) => {
       if (!isFocused) {
         navigation.navigate(route.name);
       }

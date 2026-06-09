@@ -11,7 +11,7 @@ describe('TabItem', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly with default props', () => {
+  it('should render correctly with default props', () => {
     renderWithProviders(
       <TabItem route={mockRoute} isFocused={false} isLastItem={true} onPress={mockOnPress} />,
     );
