@@ -4,7 +4,7 @@ import { MainLayoutProps } from '@/types/layout';
 
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <Styled.SafeArea>
+    <Styled.SafeArea testID="main-layout">
       <Header />
       <Styled.Content>{children}</Styled.Content>
     </Styled.SafeArea>
