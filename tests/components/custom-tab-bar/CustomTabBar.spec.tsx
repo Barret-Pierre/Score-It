@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react-native';
-import { renderWithProviders } from '@tests/utils/render.utils';
+import { renderWithThemeProvider } from '@tests/utils/render.utils';
 import { CustomTabBar } from '@/components';
 
 describe('CustomTabBar', () => {
@@ -22,14 +22,14 @@ describe('CustomTabBar', () => {
   });
 
   it('renders correctly with tab items', () => {
-    renderWithProviders(<CustomTabBar state={mockState} navigation={mockNavigation} />);
+    renderWithThemeProvider(<CustomTabBar state={mockState} navigation={mockNavigation} />);
 
     const tabItems = screen.queryAllByTestId('tab-button');
     expect(tabItems).toHaveLength(2);
   });
 
   it('navigates to correct route when tab is pressed', () => {
-    renderWithProviders(<CustomTabBar state={mockState} navigation={mockNavigation} />);
+    renderWithThemeProvider(<CustomTabBar state={mockState} navigation={mockNavigation} />);
 
     const homeButton = screen.getAllByTestId('tab-button')[0];
     fireEvent.press(homeButton);
@@ -38,7 +38,7 @@ describe('CustomTabBar', () => {
   });
 
   it('does not navigate when already focused tab is pressed', () => {
-    renderWithProviders(<CustomTabBar state={mockState} navigation={mockNavigation} />);
+    renderWithThemeProvider(<CustomTabBar state={mockState} navigation={mockNavigation} />);
 
     const settingButton = screen.getAllByTestId('tab-button')[1];
     fireEvent.press(settingButton);

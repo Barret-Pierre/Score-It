@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react-native';
-import { renderWithProviders } from '@tests/utils/render.utils';
+import { renderWithThemeProvider } from '@tests/utils/render.utils';
 import { TabItem, getIconColor } from '@/components/custom-tab-bar/TabItem';
 import { lightTheme } from '@/theme/theme';
 
@@ -12,7 +12,7 @@ describe('TabItem', () => {
   });
 
   it('should render correctly with default props', () => {
-    renderWithProviders(
+    renderWithThemeProvider(
       <TabItem route={mockRoute} isFocused={false} isLastItem={true} onPress={mockOnPress} />,
     );
 
@@ -20,7 +20,7 @@ describe('TabItem', () => {
   });
 
   it('should call onPress when TabButton is pressed', () => {
-    renderWithProviders(
+    renderWithThemeProvider(
       <TabItem route={mockRoute} isFocused={false} isLastItem={true} onPress={mockOnPress} />,
     );
 
@@ -31,7 +31,7 @@ describe('TabItem', () => {
   });
 
   it('should render Divider when this is not the last item', () => {
-    renderWithProviders(
+    renderWithThemeProvider(
       <TabItem route={mockRoute} isFocused={false} isLastItem={false} onPress={mockOnPress} />,
     );
 
@@ -39,7 +39,7 @@ describe('TabItem', () => {
   });
 
   it('should not render Divider when this is the last item', () => {
-    renderWithProviders(
+    renderWithThemeProvider(
       <TabItem route={mockRoute} isFocused={false} isLastItem={true} onPress={mockOnPress} />,
     );
 
