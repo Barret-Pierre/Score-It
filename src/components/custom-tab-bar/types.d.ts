@@ -5,7 +5,7 @@ export type TabRouteName = 'Home' | 'Settings';
 export type TabIconMap = Record<TabRouteName, LucideIcon>;
 
 export interface TabItemProps {
-  route: { name: string; key: string };
+  route: Route;
   isFocused: boolean;
   isLastItem: boolean;
   onPress: () => void;
@@ -20,3 +20,18 @@ export interface TabIconProps {
   color: string;
   size: number;
 }
+
+export type Route = {
+  key: string;
+  name: string;
+};
+
+export type CustomTabBarProps = {
+  state: {
+    routes: Route[];
+    index: number;
+  };
+  navigation: {
+    navigate: (name: string) => void;
+  };
+};

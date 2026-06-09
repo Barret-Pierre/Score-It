@@ -1,22 +1,7 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import * as Styled from './CustomTabBar.styles';
 import { TabItem } from './TabItem';
 import { useCallback } from 'react';
-
-type Route = {
-  key: string;
-  name: string;
-};
-
-type CustomTabBarProps = {
-  state: {
-    routes: Route[];
-    index: number;
-  };
-  navigation: {
-    navigate: (name: string) => void;
-  };
-};
+import { CustomTabBarProps, Route } from './types';
 
 export default function CustomTabBar({ state, navigation }: CustomTabBarProps) {
   const handleTabPress = useCallback(
