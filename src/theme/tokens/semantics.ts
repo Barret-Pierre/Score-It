@@ -151,6 +151,7 @@ export const bottom = {
   bg: primitives.colors.white,
   padding: primitives.spacing.md,
   borderWeight: primitives.border.weight[1],
+  borderColor: primitives.colors.graphite[50],
 } as const;
 
 export type Text = typeof text;
