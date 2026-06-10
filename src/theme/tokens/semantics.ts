@@ -139,6 +139,7 @@ export const icon = {
 export const divider = {
   color: primitives.colors.graphite[50],
   weight: primitives.border.weight[2],
+  borderRadius: primitives.radius.full,
 } as const;
 
 export const header = {
@@ -150,6 +151,7 @@ export const bottom = {
   bg: primitives.colors.white,
   padding: primitives.spacing.md,
   borderWeight: primitives.border.weight[1],
+  borderColor: primitives.colors.graphite[50],
 } as const;
 
 export type Text = typeof text;
