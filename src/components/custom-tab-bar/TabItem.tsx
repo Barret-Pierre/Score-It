@@ -6,7 +6,7 @@ import { TabItemProps } from './types';
 import { TabIcon } from './TabIcon';
 import { DefaultTheme } from 'styled-components/native';
 
-export function TabItem({ route, isFocused, isLastItem, onPress }: TabItemProps) {
+export function TabItem({ route, isFocused, isLastItem, onPress }: Readonly<TabItemProps>) {
   const { theme } = useTheme();
 
   const iconColor = useMemo(() => getIconColor(isFocused, theme), [isFocused, theme]);

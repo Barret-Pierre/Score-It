@@ -1,4 +1,5 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useCallback } from 'react';
+import { createBottomTabNavigator, BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { HomeScreen, SettingsScreen } from '@/screens';
 import { MainLayout } from '@/layouts';
 import { TabParamList } from '@/types/navigation';
@@ -7,10 +8,11 @@ import { CustomTabBar } from '@/components';
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export default function TabNavigator() {
+  const renderTabBar = useCallback((props: BottomTabBarProps) => <CustomTabBar {...props} />, []);
   return (
     <MainLayout>
       <Tab.Navigator
-        tabBar={(props) => <CustomTabBar {...props} />}
+        tabBar={renderTabBar}
         screenOptions={{
           headerShown: false,
         }}
