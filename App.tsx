@@ -1,15 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { AppProvider } from '@/context/AppContext';
-import RootNavigator from '@/navigation/RootNavigator';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { RootNavigator } from '@/navigation';
 
 export default function App() {
   return (
-    <AppProvider>
+    <ThemeProvider>
       <NavigationContainer>
         <RootNavigator />
         <StatusBar style="auto" />
       </NavigationContainer>
-    </AppProvider>
+    </ThemeProvider>
   );
 }
