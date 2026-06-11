@@ -1,5 +1,5 @@
 import { screen, fireEvent } from '@testing-library/react-native';
-import SettingsScreen from '@/screens/SettingsScreen';
+import SettingsScreen from '@/screens/settings/SettingsScreen';
 import { renderWithThemeProvider } from '@tests/utils/render.utils';
 
 describe('SettingsScreen', () => {
