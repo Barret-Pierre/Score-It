@@ -1,7 +1,7 @@
 import { useTheme } from '@/context/ThemeContext';
 import * as Styled from './HomeScreen.styles';
 import { FlatList, View } from 'react-native';
-import { GAMES } from './connstantes';
+import { GAMES } from './constantes';
 import GameCard from '@/components/game-card/GameCard';
 
 export default function HomeScreen() {
@@ -10,10 +10,10 @@ export default function HomeScreen() {
   const gap = theme.primitives.spacing.md;
 
   return (
-    <Styled.Container>
+    <Styled.Container testID="home-screen">
       <View>
-        <Styled.Title>Voici ta ludothèque</Styled.Title>
-        <Styled.Subtitle>A quoi on joue ?</Styled.Subtitle>
+        <Styled.Title testID="home-screen-title">Voici ta ludothèque</Styled.Title>
+        <Styled.Subtitle testID="home-screen-subtitle">A quoi on joue ?</Styled.Subtitle>
       </View>
       <FlatList
         data={GAMES}

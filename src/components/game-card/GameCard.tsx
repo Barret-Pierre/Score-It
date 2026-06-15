@@ -3,11 +3,15 @@ import { GameCardProps } from './types';
 
 export default function GameCard({ game }: Readonly<GameCardProps>) {
   return (
-    <Styled.Card>
+    <Styled.Card testID="game-card">
       <Styled.CardImageWrapper>
-        <Styled.CardImage source={game.image} resizeMode="cover"></Styled.CardImage>
+        <Styled.CardImage
+          source={game.image}
+          resizeMode="cover"
+          testID="game-card-image"
+        ></Styled.CardImage>
       </Styled.CardImageWrapper>
-      <Styled.CardTitle>{game.title}</Styled.CardTitle>
+      <Styled.CardTitle testID="game-card-title">{game.title}</Styled.CardTitle>
     </Styled.Card>
   );
 }
