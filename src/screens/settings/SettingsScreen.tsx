@@ -1,17 +1,17 @@
 import { useTheme } from '@/context/ThemeContext';
 import * as Styled from './SettingsScreen.styles';
+import { ScreenHeader } from '@/components/ui';
 
 export default function SettingsScreen() {
   const { themeMode, toggleTheme } = useTheme();
 
   return (
     <Styled.Container>
-      <Styled.Title>Settings</Styled.Title>
-
-      <Styled.ThemeInfo>
-        Thème actuel : {themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}
-      </Styled.ThemeInfo>
-
+      <ScreenHeader
+        title="Settings"
+        subtitle={`Thème actuel : ${themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}`}
+        testIDPrefix="settings-screen"
+      />
       <Styled.ThemeButton onPress={toggleTheme}>
         <Styled.ButtonText>
           Basculer vers {themeMode === 'light' ? 'Dark' : 'Light'}

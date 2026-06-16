@@ -1,8 +1,9 @@
 import { useTheme } from '@/context/ThemeContext';
 import * as Styled from './HomeScreen.styles';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
+import { GameCard } from '@/components';
+import { ScreenHeader } from '@/components/ui';
 import { GAMES } from './constantes';
-import GameCard from '@/components/game-card/GameCard';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -11,10 +12,11 @@ export default function HomeScreen() {
 
   return (
     <Styled.Container testID="home-screen">
-      <View>
-        <Styled.Title testID="home-screen-title">Voici ta ludothèque</Styled.Title>
-        <Styled.Subtitle testID="home-screen-subtitle">A quoi on joue ?</Styled.Subtitle>
-      </View>
+      <ScreenHeader
+        title="Voici ta ludothèque"
+        subtitle="A quoi on joue ?"
+        testIDPrefix="home-screen"
+      />
       <FlatList
         data={GAMES}
         keyExtractor={(item) => item.id}
