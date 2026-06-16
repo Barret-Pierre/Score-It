@@ -1,9 +1,9 @@
 import * as Styled from './GameCard.styles';
 import { GameCardProps } from './types';
 
-export default function GameCard({ game }: Readonly<GameCardProps>) {
+export default function GameCard({ game, onPress }: Readonly<GameCardProps>) {
   return (
-    <Styled.Card testID="game-card">
+    <Styled.Card onPress={onPress} testID="game-card">
       <Styled.CardImageWrapper>
         <Styled.CardImage
           source={game.image}

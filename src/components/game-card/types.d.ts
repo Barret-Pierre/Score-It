@@ -6,4 +6,5 @@ export type Game = {
 
 export type GameCardProps = {
   game: Game;
+  onPress: () => void;
 };
