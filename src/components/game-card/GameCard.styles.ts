@@ -3,7 +3,6 @@ import { styled } from 'styled-components/native';
 export const CardImageWrapper = styled.View`
   width: 100%;
   aspect-ratio: 1;
-  overflow: hidden;
 `;
 
 export const CardImage = styled.Image`

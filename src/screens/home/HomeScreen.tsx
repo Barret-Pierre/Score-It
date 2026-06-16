@@ -7,7 +7,7 @@ import GameCard from '@/components/game-card/GameCard';
 export default function HomeScreen() {
   const { theme } = useTheme();
 
-  const gap = theme.primitives.spacing.md;
+  const gap = theme.semantic.screen.gap;
 
   return (
     <Styled.Container testID="home-screen">
