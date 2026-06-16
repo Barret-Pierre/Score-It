@@ -154,6 +154,15 @@ export const bottom = {
   borderColor: primitives.colors.graphite[50],
 } as const;
 
+export const cards = {
+  bg: primitives.colors.white,
+  padding: primitives.spacing.md,
+  borderRadius: primitives.radius.rounded,
+  borderWeight: primitives.border.weight[1],
+  borderColor: primitives.colors.graphite[50],
+  gap: primitives.spacing.sm,
+} as const;
+
 export type Text = typeof text;
 export type Typography = typeof typography;
 export type Screen = typeof screen;
@@ -161,3 +170,4 @@ export type Icon = typeof icon;
 export type Divider = typeof divider;
 export type Header = typeof header;
 export type Bottom = typeof bottom;
+export type Cards = typeof cards;

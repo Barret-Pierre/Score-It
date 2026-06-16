@@ -7,14 +7,6 @@ export const Container = styled.View`
   gap: ${({ theme }) => theme.semantic.screen.gap}px;
 `;
 
-export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.semantic.typography.heading.xl.fontFamily};
-  font-size: ${({ theme }) => theme.semantic.typography.heading.xl.fontSize}px;
-  font-weight: ${({ theme }) => theme.semantic.typography.heading.xl.fontWeight};
-  line-height: ${({ theme }) => theme.semantic.typography.heading.xl.lineHeight}px;
-  color: ${({ theme }) => theme.semantic.text.primary};
-`;
-
 export const ThemeButton = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.primitives.colors.pink[500]};
   padding-horizontal: ${({ theme }) => theme.primitives.spacing.lg}px;
@@ -30,13 +22,4 @@ export const ButtonText = styled.Text`
   font-weight: ${({ theme }) => theme.semantic.typography.button.md.fontWeight};
   line-height: ${({ theme }) => theme.semantic.typography.button.md.lineHeight}px;
   color: ${({ theme }) => theme.semantic.text.inverse};
-`;
-
-export const ThemeInfo = styled.Text`
-  font-family: ${({ theme }) => theme.semantic.typography.body.md.fontFamily};
-  font-size: ${({ theme }) => theme.semantic.typography.body.md.fontSize}px;
-  font-weight: ${({ theme }) => theme.semantic.typography.body.md.fontWeight};
-  line-height: ${({ theme }) => theme.semantic.typography.body.md.lineHeight}px;
-  color: ${({ theme }) => theme.semantic.text.disabled};
-  margin-bottom: ${({ theme }) => theme.primitives.spacing.md}px;
 `;
