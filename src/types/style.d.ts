@@ -8,6 +8,7 @@ import type {
   Divider,
   Header,
   Bottom,
+  Cards,
 } from '@/theme/tokens';
 
 declare module 'styled-components/native' {
@@ -21,6 +22,7 @@ declare module 'styled-components/native' {
       divider: Divider;
       header: Header;
       bottom: Bottom;
+      cards: Cards;
     };
   }
 }

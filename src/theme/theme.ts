@@ -1,5 +1,15 @@
 import { DefaultTheme } from 'styled-components/native';
-import { primitives, text, typography, screen, icon, divider, header, bottom } from './tokens';
+import {
+  primitives,
+  text,
+  typography,
+  screen,
+  icon,
+  divider,
+  header,
+  bottom,
+  cards,
+} from './tokens';
 
 export const lightTheme: DefaultTheme = {
   primitives,
@@ -11,6 +21,7 @@ export const lightTheme: DefaultTheme = {
     divider,
     header,
     bottom,
+    cards,
   },
 };
 

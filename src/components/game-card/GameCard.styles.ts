@@ -24,9 +24,10 @@ export const Card = styled.View`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.primitives.colors.white};
-  border-radius: ${({ theme }) => theme.primitives.radius.rounded}px;
-  border-width: ${({ theme }) => theme.primitives.border.weight[1]}px;
-  border-color: ${({ theme }) => theme.primitives.colors.graphite[50]};
-  padding: ${({ theme }) => theme.primitives.spacing.md}px;
+  background-color: ${({ theme }) => theme.semantic.cards.bg};
+  border-radius: ${({ theme }) => theme.semantic.cards.borderRadius}px;
+  border-width: ${({ theme }) => theme.semantic.cards.borderWeight}px;
+  border-color: ${({ theme }) => theme.semantic.cards.borderColor};
+  padding: ${({ theme }) => theme.semantic.cards.padding}px;
+  gap: ${({ theme }) => theme.semantic.cards.gap}px;
 `;
