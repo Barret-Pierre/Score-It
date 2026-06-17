@@ -1,11 +1,13 @@
-import { Game } from '@/components/game-card/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   Tabs: undefined;
-  Setup: { game: Game };
+  Setup: undefined;
 };
 
 export type TabParamList = {
   Home: undefined;
   Settings: undefined;
 };
+
+export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;

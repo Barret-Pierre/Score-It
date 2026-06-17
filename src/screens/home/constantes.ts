@@ -1,4 +1,4 @@
-import { Game } from '@/components/game-card/types';
+import { Game } from '@/types/game';
 
 export const GAMES: Game[] = [
   { id: '1', title: 'Flip 7', image: require('../../../assets/flip-7.png') },

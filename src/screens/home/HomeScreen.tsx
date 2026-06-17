@@ -5,19 +5,20 @@ import { FlatList } from 'react-native';
 import { GameCard } from '@/components';
 import { ScreenHeader } from '@/components/ui';
 import { GAMES } from './constantes';
-import { RootStackParamList } from '@/types/navigation';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+import { useGame } from '@/context/GameContext';
+import { NavigationProp } from '@/types/navigation';
 
 export default function HomeScreen() {
-  const { theme } = useTheme();
   const navigation = useNavigation<NavigationProp>();
+  const { theme } = useTheme();
+  const { dispatch } = useGame();
 
   const gap = theme.semantic.screen.gap;
 
   const handlePress = (game: (typeof GAMES)[number]) => {
-    navigation.navigate('Setup', { game });
+    dispatch({ type: 'SELECT_GAME', payload: game });
+    navigation.navigate('Setup');
   };
 
   return (
