@@ -34,7 +34,9 @@ export default function HomeScreen() {
         columnWrapperStyle={{ gap }}
         contentContainerStyle={{ gap }}
         numColumns={2}
-        renderItem={({ item }) => <GameCard game={item} onPress={() => handlePress(item)} />}
+        renderItem={({ item }) => (
+          <GameCard game={item} onPress={() => handlePress(item)} testID={`game-card-${item.id}`} />
+        )}
       />
     </Styled.Container>
   );

@@ -6,7 +6,7 @@ export default function SettingsScreen() {
   const { themeMode, toggleTheme } = useTheme();
 
   return (
-    <Styled.Container>
+    <Styled.Container testID="settings-screen">
       <ScreenHeader
         title="Settings"
         subtitle={`Thème actuel : ${themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}`}
