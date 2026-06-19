@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
   const handlePress = (game: Game) => {
     dispatch({ type: 'SELECT_GAME', payload: game });
-    navigation.navigate('Setup');
+    navigation.navigate('Game', { screen: 'Setup' });
   };
 
   return (
