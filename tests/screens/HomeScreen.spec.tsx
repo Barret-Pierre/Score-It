@@ -12,7 +12,7 @@ const mockGames = [
   createGame({ id: '3', title: 'Game 3' }),
 ];
 
-jest.mock('@/context/GameContext', () => ({
+jest.mock('@/contexts/GameContext', () => ({
   useGame: () => ({
     dispatch: mockDispatch,
   }),
