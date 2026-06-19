@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { useGame } from '@/context/GameContext';
+import { useGame } from '@/contexts/GameContext';
 
 export default function SetupScreen() {
   const { state } = useGame();

@@ -1,11 +1,11 @@
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import { useNavigation } from '@react-navigation/native';
 import * as Styled from './HomeScreen.styles';
 import { FlatList } from 'react-native';
 import { GameCard } from '@/components';
 import { ScreenHeader } from '@/components/ui';
 import { getGames } from '@/services/game.service';
-import { useGame } from '@/context/GameContext';
+import { useGame } from '@/contexts/GameContext';
 import { NavigationProp } from '@/types/navigation';
 import { Game } from '@/types/game';
 

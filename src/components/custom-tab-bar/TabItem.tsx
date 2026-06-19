@@ -1,5 +1,5 @@
 import { Divider } from '@/components/ui';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import * as Styled from './TabItem.styles';
 import { TabItemProps } from './types';
 import { TabIcon } from './TabIcon';

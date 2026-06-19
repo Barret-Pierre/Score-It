@@ -1,6 +1,6 @@
 import { renderHook, render, screen, act } from '@testing-library/react-native';
 import { Text } from 'react-native';
-import { ThemeProvider, useTheme } from '@/context/ThemeContext';
+import { ThemeProvider, useTheme } from '@/contexts/ThemeContext';
 
 describe('ThemeProvider', () => {
   it('should render children', () => {

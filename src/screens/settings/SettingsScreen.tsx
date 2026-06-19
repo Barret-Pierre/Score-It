@@ -1,4 +1,4 @@
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import * as Styled from './SettingsScreen.styles';
 import { ScreenHeader } from '@/components/ui';
 

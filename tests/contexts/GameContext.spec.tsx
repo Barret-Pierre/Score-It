@@ -1,6 +1,6 @@
 import { renderHook, render, screen } from '@testing-library/react-native';
 import { Text } from 'react-native';
-import { GameProvider, useGame } from '@/context/GameContext';
+import { GameProvider, useGame } from '@/contexts/GameContext';
 
 describe('GameProvider', () => {
   it('should render children', () => {

@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { ThemeProvider } from '@/context/ThemeContext';
-import { RootNavigator } from '@/navigation';
-import { GameProvider } from '@/context/GameContext';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import { RootNavigator } from '@/navigations';
+import { GameProvider } from '@/contexts/GameContext';
 
 export default function App() {
   return (
