@@ -1,21 +1,21 @@
 import { screen, fireEvent } from '@testing-library/react-native';
 import SettingsScreen from '@/screens/settings/SettingsScreen';
-import { renderWithThemeProvider } from '@tests/utils/render.utils';
+import { renderWithProviders } from '@tests/utils/render.utils';
 
 describe('SettingsScreen', () => {
-  it('should render and display "Settings" text', () => {
-    renderWithThemeProvider(<SettingsScreen />);
-    expect(screen.getByText('Settings')).toBeTruthy();
+  it('should render and display screen', () => {
+    renderWithProviders(<SettingsScreen />);
+    expect(screen.getByTestId('settings-screen')).toBeTruthy();
   });
 
   it('should display light theme by default', () => {
-    renderWithThemeProvider(<SettingsScreen />);
+    renderWithProviders(<SettingsScreen />);
     expect(screen.getByText(/Thème actuel : ☀️ Light/)).toBeTruthy();
     expect(screen.getByText(/Basculer vers Dark/)).toBeTruthy();
   });
 
   it('should toggle to dark theme when button is pressed', () => {
-    renderWithThemeProvider(<SettingsScreen />);
+    renderWithProviders(<SettingsScreen />);
 
     expect(screen.getByText(/Thème actuel : ☀️ Light/)).toBeTruthy();
 
@@ -27,7 +27,7 @@ describe('SettingsScreen', () => {
   });
 
   it('should toggle back to light theme', () => {
-    renderWithThemeProvider(<SettingsScreen />);
+    renderWithProviders(<SettingsScreen />);
 
     const button = screen.getByText(/Basculer vers Dark/);
 

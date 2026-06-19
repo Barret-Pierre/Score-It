@@ -18,7 +18,7 @@ export const CardTitle = styled.Text`
   color: ${({ theme }) => theme.semantic.text.primary};
 `;
 
-export const Card = styled.View`
+export const Card = styled.Pressable`
   flex: 1;
   justify-content: center;
   align-items: center;

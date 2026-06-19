@@ -1,11 +1,11 @@
 import React from 'react';
-import { RootNavigator } from '@/navigation';
+import { TabNavigator } from '@/navigations';
 import { renderWithProviders } from '@tests/utils/render.utils';
 
-describe('RootNavigator', () => {
+describe('TabNavigator', () => {
   it('should render correctly with default props', () => {
     expect(() => {
-      renderWithProviders(<RootNavigator />);
+      renderWithProviders(<TabNavigator />);
     }).not.toThrow();
   });
 });

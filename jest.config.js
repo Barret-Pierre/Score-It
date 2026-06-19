@@ -11,10 +11,11 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*constants.ts',
+    '!src/**/*data.ts',
     '!src/**/*index.ts',
     '!src/**/*.d.ts',
     '!src/domain/models/**',
-    '!src/theme/**',
+    '!src/themes/**',
     '!src/**/*.styles.ts',
   ],
 };

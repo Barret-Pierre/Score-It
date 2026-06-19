@@ -9,7 +9,7 @@ import type {
   Header,
   Bottom,
   Cards,
-} from '@/theme/tokens';
+} from '@/themes/tokens';
 
 declare module 'styled-components/native' {
   export interface DefaultTheme {

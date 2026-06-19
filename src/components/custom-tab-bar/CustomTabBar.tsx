@@ -1,17 +1,13 @@
 import * as Styled from './CustomTabBar.styles';
 import { TabItem } from './TabItem';
-import { useCallback } from 'react';
 import { CustomTabBarProps, Route } from './types';
 
 export default function CustomTabBar({ state, navigation }: Readonly<CustomTabBarProps>) {
-  const handleTabPress = useCallback(
-    (route: Route, isFocused: boolean) => {
-      if (!isFocused) {
-        navigation.navigate(route.name);
-      }
-    },
-    [navigation],
-  );
+  const handleTabPress = (route: Route, isFocused: boolean) => {
+    if (!isFocused) {
+      navigation.navigate(route.name);
+    }
+  };
 
   return (
     <Styled.Container>

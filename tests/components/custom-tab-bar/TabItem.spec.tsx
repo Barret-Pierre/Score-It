@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react-native';
 import { renderWithThemeProvider } from '@tests/utils/render.utils';
 import { TabItem, getIconColor } from '@/components/custom-tab-bar/TabItem';
-import { lightTheme } from '@/theme/theme';
+import { lightTheme } from '@/themes/theme';
 
 describe('TabItem', () => {
   const mockRoute = { key: 'home', name: 'Home' };
