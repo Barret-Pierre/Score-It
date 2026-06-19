@@ -4,10 +4,10 @@ import * as Styled from './HomeScreen.styles';
 import { FlatList } from 'react-native';
 import { GameCard } from '@/components';
 import { ScreenHeader } from '@/components/ui';
-import { GAMES } from './constantes';
-
+import { getGames } from '@/services/game.service';
 import { useGame } from '@/context/GameContext';
 import { NavigationProp } from '@/types/navigation';
+import { Game } from '@/types/game';
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
@@ -15,8 +15,9 @@ export default function HomeScreen() {
   const { dispatch } = useGame();
 
   const gap = theme.semantic.screen.gap;
+  const games = getGames();
 
-  const handlePress = (game: (typeof GAMES)[number]) => {
+  const handlePress = (game: Game) => {
     dispatch({ type: 'SELECT_GAME', payload: game });
     navigation.navigate('Setup');
   };
@@ -29,7 +30,7 @@ export default function HomeScreen() {
         testIDPrefix="home-screen"
       />
       <FlatList
-        data={GAMES}
+        data={games}
         keyExtractor={(item) => item.id}
         columnWrapperStyle={{ gap }}
         contentContainerStyle={{ gap }}

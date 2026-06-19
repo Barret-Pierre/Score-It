@@ -1,17 +1,16 @@
 import { fireEvent, screen } from '@testing-library/react-native';
 import { renderWithThemeProvider } from '@tests/utils/render.utils';
+import * as gameService from '@/services/game.service';
 import HomeScreen from '@/screens/home/HomeScreen';
+import { createGame } from '@tests/factories/game.factory';
 
 const mockDispatch = jest.fn();
 const mockNavigate = jest.fn();
-
-jest.mock('@/screens/home/constantes', () => ({
-  GAMES: [
-    { id: '1', title: 'Game 1', image: require('../../assets/flip-7.png') },
-    { id: '2', title: 'Game 2', image: require('../../assets/flip-7.png') },
-    { id: '3', title: 'Game 3', image: require('../../assets/flip-7.png') },
-  ],
-}));
+const mockGames = [
+  createGame({ id: '1', title: 'Game 1' }),
+  createGame({ id: '2', title: 'Game 2' }),
+  createGame({ id: '3', title: 'Game 3' }),
+];
 
 jest.mock('@/context/GameContext', () => ({
   useGame: () => ({
@@ -27,6 +26,7 @@ jest.mock('@react-navigation/native', () => ({
 
 beforeEach(() => {
   jest.clearAllMocks();
+  jest.spyOn(gameService, 'getGames').mockReturnValue(mockGames);
 });
 
 describe('HomeScreen', () => {
@@ -44,17 +44,18 @@ describe('HomeScreen', () => {
   it('should render the good number of game cards', () => {
     renderWithThemeProvider(<HomeScreen />);
     const gameCards = screen.getAllByTestId(/game-card-\d+/);
-    expect(gameCards.length).toBe(3);
+    expect(gameCards).toHaveLength(mockGames.length);
   });
 
-  it('sélectionne un jeu et navigue vers Setup au clic sur une carte', () => {
+  it('should dispatch the correct action and navigate to Setup on game card press', () => {
+    const firstGame = mockGames[0];
     renderWithThemeProvider(<HomeScreen />);
 
-    fireEvent.press(screen.getByTestId(`game-card-1`));
+    fireEvent.press(screen.getByTestId(`game-card-${firstGame.id}`));
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'SELECT_GAME',
-      payload: { id: '1', title: 'Game 1', image: require('../../assets/flip-7.png') },
+      payload: firstGame,
     });
 
     expect(mockNavigate).toHaveBeenCalledWith('Setup');

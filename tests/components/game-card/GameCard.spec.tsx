@@ -1,13 +1,10 @@
 import { screen } from '@testing-library/react-native';
 import { renderWithProviders } from '@tests/utils/render.utils';
 import { GameCard } from '@/components';
+import { createGame } from '@tests/factories/game.factory';
 
 describe('GameCard', () => {
-  const mockGame = {
-    id: '1',
-    title: 'Mock Game',
-    image: require('../../../assets/flip-7.png'),
-  };
+  const mockGame = createGame({ id: '1', title: 'Mock Game' });
 
   const mockOnPress = jest.fn();
 
