@@ -15,7 +15,7 @@ module.exports = {
     '!src/**/*index.ts',
     '!src/**/*.d.ts',
     '!src/domain/models/**',
-    '!src/theme/**',
+    '!src/themes/**',
     '!src/**/*.styles.ts',
   ],
 };
