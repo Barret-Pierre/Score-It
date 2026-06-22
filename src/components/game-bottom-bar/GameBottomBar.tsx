@@ -1,11 +1,22 @@
+import { Button } from '../ui';
 import * as Styled from './GameBottomBar.styles';
 
-export default function GameBottomBar() {
+interface GameBottomBarProps {
+  buttonTitle: string;
+  isDisabled?: boolean;
+  onButtonPress: () => void;
+}
+
+export default function GameBottomBar({
+  buttonTitle,
+  isDisabled,
+  onButtonPress,
+}: Readonly<GameBottomBarProps>) {
   return (
     <Styled.Container testID="game-bottom-bar">
-      <Styled.Button>
-        <Styled.ButtonText>Button</Styled.ButtonText>
-      </Styled.Button>
+      <Button disabled={isDisabled} onPress={onButtonPress}>
+        {buttonTitle}
+      </Button>
     </Styled.Container>
   );
 }
