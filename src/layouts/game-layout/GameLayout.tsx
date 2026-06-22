@@ -1,5 +1,5 @@
 import * as Styled from './GameLayout.styles';
-import { GameFlowHeader, GameBottomBar } from '@/components';
+import { GameFlowHeader, GameFlowBottomBar } from '@/components';
 import { useGame } from '@/contexts/GameContext';
 import { GameLayoutProps } from '@/types/layout';
 import { ArrowLeft } from 'lucide-react-native';
@@ -23,7 +23,7 @@ export default function GameLayout({ children }: Readonly<GameLayoutProps>) {
         onIconLeftPress={handleIconLeftPress}
       />
       <Styled.Content>{children}</Styled.Content>
-      <GameBottomBar
+      <GameFlowBottomBar
         buttonTitle="Lancer une partie"
         isDisabled={false}
         onButtonPress={handleButtonPress}

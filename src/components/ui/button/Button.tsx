@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import * as Styled from './Button.styles';
+import { Pressable } from 'react-native';
 
 interface ButtonProps {
   children: ReactNode;
@@ -9,8 +10,12 @@ interface ButtonProps {
 
 export default function Button({ children, disabled = false, onPress }: Readonly<ButtonProps>) {
   return (
-    <Styled.Button disabled={disabled} onPress={onPress}>
-      <Styled.ButtonText $disabled={disabled}>{children}</Styled.ButtonText>
-    </Styled.Button>
+    <Pressable onPress={onPress} disabled={disabled}>
+      {(state) => (
+        <Styled.Button $disabled={disabled} $pressed={state.pressed}>
+          <Styled.ButtonText $disabled={disabled}>{children}</Styled.ButtonText>
+        </Styled.Button>
+      )}
+    </Pressable>
   );
 }
