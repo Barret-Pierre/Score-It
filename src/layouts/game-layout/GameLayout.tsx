@@ -21,12 +21,14 @@ export default function GameLayout({ children }: Readonly<GameLayoutProps>) {
         iconLeft={ArrowLeft}
         title={state.selectedGame?.title || 'Game'}
         onIconLeftPress={handleIconLeftPress}
+        testID={`game-flow-header`}
       />
       <Styled.Content>{children}</Styled.Content>
       <GameFlowBottomBar
         buttonTitle="Lancer une partie"
         isDisabled={false}
         onButtonPress={handleButtonPress}
+        testID={`game-flow-bottom-bar`}
       />
     </Styled.SafeArea>
   );

@@ -1,6 +1,7 @@
 import { useTheme } from '@/contexts/ThemeContext';
 import * as Styled from './GameFlowHeader.styles';
 import { LucideIcon } from 'lucide-react-native';
+import { Pressable } from 'react-native';
 
 interface GameFlowHeaderProps {
   iconLeft?: LucideIcon;
@@ -8,6 +9,7 @@ interface GameFlowHeaderProps {
   title: string;
   onIconLeftPress?: () => void;
   onIconRightPress?: () => void;
+  testID?: string;
 }
 
 export default function GameFlowHeader({
@@ -16,6 +18,7 @@ export default function GameFlowHeader({
   title,
   onIconLeftPress,
   onIconRightPress,
+  testID,
 }: Readonly<GameFlowHeaderProps>) {
   const { theme } = useTheme();
 
@@ -25,13 +28,17 @@ export default function GameFlowHeader({
   const iconSize = theme.semantic.icon.size.md;
 
   return (
-    <Styled.Container testID="generic-header">
+    <Styled.Container testID={testID}>
       {IconLeftComponent && (
-        <IconLeftComponent color={iconColor} size={iconSize} onPress={onIconLeftPress} />
+        <Pressable testID={`${testID}-icon-left`} onPress={onIconLeftPress}>
+          <IconLeftComponent color={iconColor} size={iconSize} />
+        </Pressable>
       )}
-      <Styled.Title>{title}</Styled.Title>
+      <Styled.Title testID={`${testID}-title`}>{title}</Styled.Title>
       {IconRightComponent && (
-        <IconRightComponent color={iconColor} size={iconSize} onPress={onIconRightPress} />
+        <Pressable testID={`${testID}-icon-right`} onPress={onIconRightPress}>
+          <IconRightComponent color={iconColor} size={iconSize} />
+        </Pressable>
       )}
     </Styled.Container>
   );

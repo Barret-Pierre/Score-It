@@ -6,11 +6,17 @@ interface ButtonProps {
   children: ReactNode;
   disabled?: boolean;
   onPress?: () => void;
+  testID?: string;
 }
 
-export default function Button({ children, disabled = false, onPress }: Readonly<ButtonProps>) {
+export default function Button({
+  children,
+  disabled = false,
+  onPress,
+  testID,
+}: Readonly<ButtonProps>) {
   return (
-    <Pressable onPress={onPress} disabled={disabled}>
+    <Pressable onPress={onPress} disabled={disabled} testID={testID}>
       {(state) => (
         <Styled.Button $disabled={disabled} $pressed={state.pressed}>
           <Styled.ButtonText $disabled={disabled}>{children}</Styled.ButtonText>
