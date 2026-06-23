@@ -10,7 +10,7 @@ export default function SettingsScreen() {
       <ScreenHeader
         title="Settings"
         subtitle={`Thème actuel : ${themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}`}
-        testIDPrefix="settings-screen"
+        testID="settings-screen"
       />
       <Styled.ThemeButton onPress={toggleTheme}>
         <Styled.ButtonText>

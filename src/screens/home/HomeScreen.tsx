@@ -24,11 +24,7 @@ export default function HomeScreen() {
 
   return (
     <Styled.Container testID="home-screen">
-      <ScreenHeader
-        title="Voici ta ludothèque"
-        subtitle="A quoi on joue ?"
-        testIDPrefix="home-screen"
-      />
+      <ScreenHeader title="Voici ta ludothèque" subtitle="A quoi on joue ?" testID="home-screen" />
       <FlatList
         data={games}
         keyExtractor={(item) => item.id}
