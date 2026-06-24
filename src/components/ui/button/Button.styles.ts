@@ -4,9 +4,9 @@ import { styled } from 'styled-components/native';
 export const Button = styled.View<{ $disabled?: boolean; $pressed?: boolean }>`
   background-color: ${({ theme, $disabled, $pressed }) =>
     getButtonBackground(theme, { disabled: $disabled, pressed: $pressed })};
-  padding-horizontal: ${({ theme }) => theme.primitives.spacing.xl}px;
-  padding-vertical: ${({ theme }) => theme.primitives.spacing.md}px;
-  border-radius: ${({ theme }) => theme.primitives.radius.rounded}px;
+  padding-horizontal: ${({ theme }) => theme.semantic.buttons.paddingHorizontal}px;
+  padding-vertical: ${({ theme }) => theme.semantic.buttons.paddingVertical}px;
+  border-radius: ${({ theme }) => theme.semantic.buttons.borderRadius}px;
   align-items: center;
   justify-content: center;
 `;
@@ -17,5 +17,5 @@ export const ButtonText = styled.Text<{ $disabled?: boolean }>`
   font-weight: ${({ theme }) => theme.semantic.typography.button.md.fontWeight};
   line-height: ${({ theme }) => theme.semantic.typography.button.md.lineHeight}px;
   color: ${({ theme, $disabled }) =>
-    $disabled ? theme.primitives.colors.graphite[200] : theme.semantic.text.inverse};
+    $disabled ? theme.semantic.text.disabled : theme.semantic.text.inverse};
 `;

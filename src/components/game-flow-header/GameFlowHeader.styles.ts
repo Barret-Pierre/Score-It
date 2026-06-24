@@ -5,7 +5,7 @@ export const Container = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.semantic.header.bg};
   padding: ${({ theme }) => theme.semantic.header.padding}px;
-  gap: ${({ theme }) => theme.primitives.spacing.sm}px;
+  gap: ${({ theme }) => theme.semantic.header.gameFlow.gap}px;
 `;
 
 export const Title = styled.Text`
@@ -16,5 +16,5 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.semantic.text.primary};
   flex: 1;
   text-align: center;
-  margin-right: ${({ theme }) => theme.primitives.spacing.xl}px;
+  margin-right: ${({ theme }) => theme.semantic.header.gameFlow.marginRight}px;
 `;
