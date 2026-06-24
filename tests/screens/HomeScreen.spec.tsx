@@ -58,6 +58,6 @@ describe('HomeScreen', () => {
       payload: firstGame,
     });
 
-    expect(mockNavigate).toHaveBeenCalledWith('Setup');
+    expect(mockNavigate).toHaveBeenCalledWith('Game', { screen: 'Setup' });
   });
 });

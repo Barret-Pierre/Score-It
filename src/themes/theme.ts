@@ -9,6 +9,7 @@ import {
   header,
   bottom,
   cards,
+  buttons,
 } from './tokens';
 
 export const lightTheme: DefaultTheme = {
@@ -22,6 +23,7 @@ export const lightTheme: DefaultTheme = {
     header,
     bottom,
     cards,
+    buttons,
   },
 };
 

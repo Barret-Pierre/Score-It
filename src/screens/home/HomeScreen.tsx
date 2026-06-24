@@ -19,16 +19,12 @@ export default function HomeScreen() {
 
   const handlePress = (game: Game) => {
     dispatch({ type: 'SELECT_GAME', payload: game });
-    navigation.navigate('Setup');
+    navigation.navigate('Game', { screen: 'Setup' });
   };
 
   return (
     <Styled.Container testID="home-screen">
-      <ScreenHeader
-        title="Voici ta ludothèque"
-        subtitle="A quoi on joue ?"
-        testIDPrefix="home-screen"
-      />
+      <ScreenHeader title="Voici ta ludothèque" subtitle="A quoi on joue ?" testID="home-screen" />
       <FlatList
         data={games}
         keyExtractor={(item) => item.id}

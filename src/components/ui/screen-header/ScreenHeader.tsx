@@ -4,18 +4,14 @@ import * as Styled from './ScreenHeader.styles';
 interface ScreenHeaderProps {
   title: string;
   subtitle: string;
-  testIDPrefix: string;
+  testID: string;
 }
 
-export default function ScreenHeader({
-  title,
-  subtitle,
-  testIDPrefix,
-}: Readonly<ScreenHeaderProps>) {
+export default function ScreenHeader({ title, subtitle, testID }: Readonly<ScreenHeaderProps>) {
   return (
     <View>
-      <Styled.Title testID={`${testIDPrefix}-title`}>{title}</Styled.Title>
-      <Styled.Subtitle testID={`${testIDPrefix}-subtitle`}>{subtitle}</Styled.Subtitle>
+      <Styled.Title testID={`${testID}-title`}>{title}</Styled.Title>
+      <Styled.Subtitle testID={`${testID}-subtitle`}>{subtitle}</Styled.Subtitle>
     </View>
   );
 }

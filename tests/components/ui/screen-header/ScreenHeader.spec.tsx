@@ -6,7 +6,7 @@ describe('ScreenHeader', () => {
   const mockProps = {
     title: 'Test Title',
     subtitle: 'Test Subtitle',
-    testIDPrefix: 'test',
+    testID: 'test',
   };
 
   it('should render correctly with default props', () => {

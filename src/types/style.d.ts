@@ -9,6 +9,7 @@ import type {
   Header,
   Bottom,
   Cards,
+  Buttons,
 } from '@/themes/tokens';
 
 declare module 'styled-components/native' {
@@ -23,6 +24,7 @@ declare module 'styled-components/native' {
       header: Header;
       bottom: Bottom;
       cards: Cards;
+      buttons: Buttons;
     };
   }
 }

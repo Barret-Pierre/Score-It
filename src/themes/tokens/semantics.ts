@@ -145,6 +145,11 @@ export const divider = {
 export const header = {
   bg: primitives.colors.white,
   padding: primitives.spacing.md,
+
+  gameFlow: {
+    gap: primitives.spacing.sm,
+    marginRight: primitives.spacing.xl,
+  },
 } as const;
 
 export const bottom = {
@@ -163,6 +168,22 @@ export const cards = {
   gap: primitives.spacing.sm,
 } as const;
 
+export const buttons = {
+  bg: primitives.colors.pink[500],
+  paddingHorizontal: primitives.spacing.xl,
+  paddingVertical: primitives.spacing.md,
+  borderRadius: primitives.radius.rounded,
+  gap: primitives.spacing.sm,
+
+  disabled: {
+    bg: primitives.colors.graphite[50],
+  },
+
+  active: {
+    bg: primitives.colors.pink[600],
+  },
+} as const;
+
 export type Text = typeof text;
 export type Typography = typeof typography;
 export type Screen = typeof screen;
@@ -171,3 +192,4 @@ export type Divider = typeof divider;
 export type Header = typeof header;
 export type Bottom = typeof bottom;
 export type Cards = typeof cards;
+export type Buttons = typeof buttons;
