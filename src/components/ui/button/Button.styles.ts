@@ -14,7 +14,6 @@ export const Button = styled.View<{ $disabled?: boolean; $pressed?: boolean }>`
 export const ButtonText = styled.Text<{ $disabled?: boolean }>`
   font-family: ${({ theme }) => theme.semantic.typography.button.md.fontFamily};
   font-size: ${({ theme }) => theme.semantic.typography.button.md.fontSize}px;
-  font-weight: ${({ theme }) => theme.semantic.typography.button.md.fontWeight};
   line-height: ${({ theme }) => theme.semantic.typography.button.md.lineHeight}px;
   color: ${({ theme, $disabled }) =>
     $disabled ? theme.semantic.text.disabled : theme.semantic.text.inverse};

@@ -8,7 +8,6 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.semantic.typography.display.xl.fontFamily};
   font-size: ${({ theme }) => theme.semantic.typography.display.xl.fontSize}px;
-  font-weight: ${({ theme }) => theme.semantic.typography.display.xl.fontWeight};
   line-height: ${({ theme }) => theme.semantic.typography.display.xl.lineHeight}px;
   color: ${({ theme }) => theme.semantic.text.accent};
 `;

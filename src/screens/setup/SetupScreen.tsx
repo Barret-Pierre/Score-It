@@ -1,12 +1,18 @@
-import { Text, View } from 'react-native';
-import { useGame } from '@/contexts/GameContext';
+import { useTheme } from '@/contexts/ThemeContext';
+import * as Styled from './SetupScreen.styles';
+import { ScreenHeader } from '@/components/ui';
+import { Text } from 'react-native';
 
 export default function SetupScreen() {
-  const { state } = useGame();
+  const theme = useTheme();
 
   return (
-    <View testID="setup-screen" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Setup Screen for {state.selectedGame?.title}</Text>
-    </View>
+    <Styled.Container testID="setup-screen">
+      <ScreenHeader
+        title="Ajouter des joueurs"
+        customSubtitle={<Styled.CustomSubtitle>2 joueurs minimum</Styled.CustomSubtitle>}
+        testID="screen-header"
+      />
+    </Styled.Container>
   );
 }

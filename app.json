@@ -32,6 +32,9 @@
         "projectId": "5b576601-1086-4aa6-9699-056402c34109"
       }
     },
-    "owner": "pierre-barret"
+    "owner": "pierre-barret",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

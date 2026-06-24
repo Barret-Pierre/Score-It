@@ -14,99 +14,85 @@ export const text = {
 export const typography = {
   display: {
     xl: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[40],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[48],
     },
     lg: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[32],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[40],
     },
   },
 
   heading: {
     xl: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[28],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[36],
     },
     lg: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[24],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[32],
     },
     md: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.semibold,
       fontSize: primitives.font.size[20],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[28],
     },
     sm: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.semibold,
       fontSize: primitives.font.size[18],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[26],
     },
   },
 
   body: {
     lg: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[17],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[26],
     },
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[24],
     },
     accent: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[24],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[14],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[22],
     },
   },
 
   caption: {
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.medium,
       fontSize: primitives.font.size[13],
-      fontWeight: primitives.font.weight.medium,
       lineHeight: primitives.font.lineHeight[18],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.medium,
       fontSize: primitives.font.size[12],
-      fontWeight: primitives.font.weight.medium,
       lineHeight: primitives.font.lineHeight[16],
     },
   },
 
   button: {
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[24],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[14],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[20],
     },
   },

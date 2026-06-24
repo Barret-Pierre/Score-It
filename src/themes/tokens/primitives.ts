@@ -80,14 +80,18 @@ export const primitives = {
 
   font: {
     family: {
-      kumbh: 'Kumbh Sans',
-      inter: 'Inter',
-    },
-    weight: {
-      regular: 400,
-      medium: 500,
-      semibold: 600,
-      bold: 700,
+      kumbh: {
+        regular: 'Kumbh-Sans-Regular',
+        medium: 'Kumbh-Sans-Medium',
+        semibold: 'Kumbh-Sans-Semibold',
+        bold: 'Kumbh-Sans-Bold',
+      },
+      inter: {
+        regular: 'Inter-Regular',
+        medium: 'Inter-Medium',
+        semibold: 'Inter-SemiBold',
+        bold: 'Inter-Bold',
+      },
     },
     size: {
       12: 12,
