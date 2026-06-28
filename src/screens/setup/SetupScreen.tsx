@@ -1,6 +1,6 @@
 import { useTheme } from '@/contexts/ThemeContext';
 import * as Styled from './SetupScreen.styles';
-import { ScreenHeader } from '@/components/ui';
+import { Button, ScreenHeader } from '@/components/ui';
 import { FlatList } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
 import { useCallback, useState } from 'react';
@@ -43,9 +43,12 @@ export default function SetupScreen() {
           />
         )}
         ListFooterComponent={
-          <Styled.Button onPress={onAddPlayerPress} testID="add-player-button">
-            <SquarePlus color={theme.semantic.icon.enabled} size={24} />
-          </Styled.Button>
+          <Button
+            icon={SquarePlus}
+            onPress={onAddPlayerPress}
+            testID="add-player-button"
+            variant="dashed"
+          />
         }
       />
     </Styled.Container>

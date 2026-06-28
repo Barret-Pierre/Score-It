@@ -16,9 +16,7 @@ export default function GameFlowBottomBar({
 }: Readonly<GameFlowBottomBarProps>) {
   return (
     <Styled.Container testID={testID}>
-      <Button disabled={isDisabled} onPress={onButtonPress} testID={`button`}>
-        {buttonTitle}
-      </Button>
+      <Button title={buttonTitle} disabled={isDisabled} onPress={onButtonPress} testID={`button`} />
     </Styled.Container>
   );
 }
