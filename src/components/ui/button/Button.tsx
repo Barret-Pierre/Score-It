@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import * as Styled from './Button.styles';
 import { Pressable } from 'react-native';
 import { LucideIcon } from 'lucide-react-native';
