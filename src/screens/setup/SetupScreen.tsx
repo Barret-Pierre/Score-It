@@ -5,6 +5,7 @@ import { FlatList } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
 import { useCallback, useState } from 'react';
 import PlayerCard from '@/components/player-card/PlayerCard';
+import { ButtonVariant } from '@/components/ui/button/types.d';
 
 export default function SetupScreen() {
   const { theme } = useTheme();
@@ -47,7 +48,7 @@ export default function SetupScreen() {
             icon={SquarePlus}
             onPress={onAddPlayerPress}
             testID="add-player-button"
-            variant="dashed"
+            variant={ButtonVariant.DASHED}
           />
         }
       />

@@ -154,19 +154,81 @@ export const cards = {
   gap: primitives.spacing.sm,
 } as const;
 
-export const buttons = {
-  bg: primitives.colors.pink[500],
-  paddingHorizontal: primitives.spacing.xl,
-  paddingVertical: primitives.spacing.md,
-  borderRadius: primitives.radius.rounded,
-  gap: primitives.spacing.sm,
+// export const buttons = {
+//   bg: primitives.colors.pink[500],
+//   paddingHorizontal: primitives.spacing.xl,
+//   paddingVertical: primitives.spacing.md,
+//   borderRadius: primitives.radius.rounded,
+//   gap: primitives.spacing.sm,
 
-  disabled: {
-    bg: primitives.colors.graphite[50],
+//   disabled: {
+//     bg: primitives.colors.graphite[50],
+//   },
+
+//   active: {
+//     bg: primitives.colors.pink[600],
+//   },
+// } as const;
+
+export const buttons = {
+  default: {
+    background: primitives.colors.pink[500],
+    backgroundPressed: primitives.colors.pink[600],
+    backgroundDisabled: primitives.colors.graphite[50],
+
+    text: text.inverse,
+    textDisabled: text.disabled,
+
+    icon: icon.onPrimary,
+    iconDisabled: icon.disabled,
+
+    borderWidth: 0,
+    borderColor: primitives.colors.transparent,
+    borderColorDisabled: primitives.colors.transparent,
+    borderStyle: 'solid',
   },
 
-  active: {
-    bg: primitives.colors.pink[600],
+  outlined: {
+    background: primitives.colors.transparent,
+    backgroundPressed: primitives.colors.pink[50],
+    backgroundDisabled: primitives.colors.transparent,
+
+    text: text.accent,
+    textDisabled: text.disabled,
+
+    icon: icon.focused,
+    iconDisabled: icon.disabled,
+
+    borderWidth: primitives.border.weight[2],
+    borderColor: primitives.colors.pink[500],
+    borderColorDisabled: primitives.colors.graphite[50],
+
+    borderStyle: 'solid',
+  },
+
+  dashed: {
+    background: primitives.colors.transparent,
+    backgroundPressed: primitives.colors.violet[50],
+    backgroundDisabled: primitives.colors.transparent,
+
+    text: text.info,
+    textDisabled: text.disabled,
+
+    icon: icon.enabled,
+    iconDisabled: icon.disabled,
+
+    borderWidth: primitives.border.weight[2],
+    borderColor: primitives.colors.violet[500],
+    borderColorDisabled: primitives.colors.graphite[50],
+
+    borderStyle: 'dashed',
+  },
+
+  common: {
+    paddingHorizontal: primitives.spacing.xl,
+    paddingVertical: primitives.spacing.md,
+    borderRadius: primitives.radius.rounded,
+    gap: primitives.spacing.sm,
   },
 } as const;
 
