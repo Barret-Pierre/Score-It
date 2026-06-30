@@ -18,7 +18,7 @@ export default function ScreenHeader({
   return (
     <View>
       <Styled.Title testID={`${testID}-title`}>{title}</Styled.Title>
-      {customSubtitle && <View>{customSubtitle}</View>}
+      {customSubtitle && <View testID={`${testID}-custom-subtitle`}>{customSubtitle}</View>}
       {subtitle && <Styled.Subtitle testID={`${testID}-subtitle`}>{subtitle}</Styled.Subtitle>}
     </View>
   );

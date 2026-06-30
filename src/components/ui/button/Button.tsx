@@ -1,6 +1,6 @@
 import * as Styled from './Button.styles';
 import { ButtonVariant } from './types.d';
-import { Pressable } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { LucideIcon } from 'lucide-react-native';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -32,9 +32,13 @@ export default function Button({
     <Pressable onPress={onPress} disabled={disabled} testID={testID}>
       {(state) => (
         <Styled.Button $disabled={disabled} $pressed={state.pressed} $variant={variant}>
-          {Icon && <Icon size={iconSize} color={iconColor} />}
+          {Icon && (
+            <View testID={`${testID}-icon`}>
+              <Icon size={iconSize} color={iconColor} />
+            </View>
+          )}
           {title !== undefined && (
-            <Styled.ButtonTitle $disabled={disabled} $variant={variant}>
+            <Styled.ButtonTitle $disabled={disabled} $variant={variant} testID={`${testID}-title`}>
               {title}
             </Styled.ButtonTitle>
           )}

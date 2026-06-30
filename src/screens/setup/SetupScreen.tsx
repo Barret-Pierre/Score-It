@@ -14,9 +14,7 @@ export default function SetupScreen() {
   const gap = theme.semantic.screen.gap;
 
   const onAddPlayerPress = useCallback(() => {
-    console.log('pressed');
     setPlayers((prev) => {
-      console.log(prev.length);
       return [...prev, { id: String(prev.length + 1), name: '' }];
     });
   }, []);
