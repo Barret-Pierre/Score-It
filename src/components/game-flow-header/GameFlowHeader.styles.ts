@@ -11,7 +11,6 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.semantic.typography.heading.lg.fontFamily};
   font-size: ${({ theme }) => theme.semantic.typography.heading.lg.fontSize}px;
-  font-weight: ${({ theme }) => theme.semantic.typography.heading.lg.fontWeight};
   line-height: ${({ theme }) => theme.semantic.typography.heading.lg.lineHeight}px;
   color: ${({ theme }) => theme.semantic.text.primary};
   flex: 1;

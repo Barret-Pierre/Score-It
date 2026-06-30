@@ -14,99 +14,85 @@ export const text = {
 export const typography = {
   display: {
     xl: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[40],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[48],
     },
     lg: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[32],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[40],
     },
   },
 
   heading: {
     xl: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[28],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[36],
     },
     lg: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.bold,
       fontSize: primitives.font.size[24],
-      fontWeight: primitives.font.weight.bold,
       lineHeight: primitives.font.lineHeight[32],
     },
     md: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.semibold,
       fontSize: primitives.font.size[20],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[28],
     },
     sm: {
-      fontFamily: primitives.font.family.kumbh,
+      fontFamily: primitives.font.family.kumbh.semibold,
       fontSize: primitives.font.size[18],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[26],
     },
   },
 
   body: {
     lg: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[17],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[26],
     },
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[24],
     },
     accent: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[24],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.regular,
       fontSize: primitives.font.size[14],
-      fontWeight: primitives.font.weight.regular,
       lineHeight: primitives.font.lineHeight[22],
     },
   },
 
   caption: {
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.medium,
       fontSize: primitives.font.size[13],
-      fontWeight: primitives.font.weight.medium,
       lineHeight: primitives.font.lineHeight[18],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.medium,
       fontSize: primitives.font.size[12],
-      fontWeight: primitives.font.weight.medium,
       lineHeight: primitives.font.lineHeight[16],
     },
   },
 
   button: {
     md: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[16],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[24],
     },
     sm: {
-      fontFamily: primitives.font.family.inter,
+      fontFamily: primitives.font.family.inter.semibold,
       fontSize: primitives.font.size[14],
-      fontWeight: primitives.font.weight.semibold,
       lineHeight: primitives.font.lineHeight[20],
     },
   },
@@ -168,19 +154,81 @@ export const cards = {
   gap: primitives.spacing.sm,
 } as const;
 
-export const buttons = {
-  bg: primitives.colors.pink[500],
-  paddingHorizontal: primitives.spacing.xl,
-  paddingVertical: primitives.spacing.md,
-  borderRadius: primitives.radius.rounded,
-  gap: primitives.spacing.sm,
+// export const buttons = {
+//   bg: primitives.colors.pink[500],
+//   paddingHorizontal: primitives.spacing.xl,
+//   paddingVertical: primitives.spacing.md,
+//   borderRadius: primitives.radius.rounded,
+//   gap: primitives.spacing.sm,
 
-  disabled: {
-    bg: primitives.colors.graphite[50],
+//   disabled: {
+//     bg: primitives.colors.graphite[50],
+//   },
+
+//   active: {
+//     bg: primitives.colors.pink[600],
+//   },
+// } as const;
+
+export const buttons = {
+  default: {
+    background: primitives.colors.pink[500],
+    backgroundPressed: primitives.colors.pink[600],
+    backgroundDisabled: primitives.colors.graphite[50],
+
+    text: text.inverse,
+    textDisabled: text.disabled,
+
+    icon: icon.onPrimary,
+    iconDisabled: icon.disabled,
+
+    borderWidth: 0,
+    borderColor: primitives.colors.transparent,
+    borderColorDisabled: primitives.colors.transparent,
+    borderStyle: 'solid',
   },
 
-  active: {
-    bg: primitives.colors.pink[600],
+  outlined: {
+    background: primitives.colors.transparent,
+    backgroundPressed: primitives.colors.pink[50],
+    backgroundDisabled: primitives.colors.transparent,
+
+    text: text.accent,
+    textDisabled: text.disabled,
+
+    icon: icon.focused,
+    iconDisabled: icon.disabled,
+
+    borderWidth: primitives.border.weight[2],
+    borderColor: primitives.colors.pink[500],
+    borderColorDisabled: primitives.colors.graphite[50],
+
+    borderStyle: 'solid',
+  },
+
+  dashed: {
+    background: primitives.colors.transparent,
+    backgroundPressed: primitives.colors.violet[50],
+    backgroundDisabled: primitives.colors.transparent,
+
+    text: text.info,
+    textDisabled: text.disabled,
+
+    icon: icon.enabled,
+    iconDisabled: icon.disabled,
+
+    borderWidth: primitives.border.weight[2],
+    borderColor: primitives.colors.violet[500],
+    borderColorDisabled: primitives.colors.graphite[50],
+
+    borderStyle: 'dashed',
+  },
+
+  common: {
+    paddingHorizontal: primitives.spacing.xl,
+    paddingVertical: primitives.spacing.md,
+    borderRadius: primitives.radius.rounded,
+    gap: primitives.spacing.sm,
   },
 } as const;
 

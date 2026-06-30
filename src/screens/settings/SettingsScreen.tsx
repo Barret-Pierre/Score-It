@@ -12,9 +12,11 @@ export default function SettingsScreen() {
         subtitle={`Thème actuel : ${themeMode === 'light' ? '☀️ Light' : '🌙 Dark'}`}
         testID="settings-screen"
       />
-      <Button onPress={toggleTheme} testID={`button`}>
-        Basculer vers {themeMode === 'light' ? 'Dark' : 'Light'}
-      </Button>
+      <Button
+        title={`Basculer vers ${themeMode === 'light' ? 'Dark' : 'Light'}`}
+        onPress={toggleTheme}
+        testID={`button`}
+      />
     </Styled.Container>
   );
 }
