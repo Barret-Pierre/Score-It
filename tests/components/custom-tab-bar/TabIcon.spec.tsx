@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react-native';
 import { TabIcon } from '@/components/custom-tab-bar/TabIcon';
-import { lightTheme } from '@/theme/theme';
+import { lightTheme } from '@/themes/theme';
 
 describe('TabIcon', () => {
   beforeEach(() => {
