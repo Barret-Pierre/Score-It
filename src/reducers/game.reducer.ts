@@ -1,4 +1,4 @@
-import { GameAction, GameState } from '@/types/game';
+import { GameAction, GameState } from '@/domains/models/game.model';
 
 export function gameReducer(state: GameState, action: GameAction): GameState {
   switch (action.type) {

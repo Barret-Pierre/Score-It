@@ -1,11 +1,11 @@
-import { gameReducer } from '@/reducers/game.reducer';
-import { GameContextType, GameState } from '@/types/game';
 import { createContext, ReactNode, useContext, useMemo, useReducer } from 'react';
-import * as Crypto from 'expo-crypto';
+import { gameReducer } from '@/reducers/game.reducer';
+import { GameContextType, GameState } from '@/domains/models/game.model';
+import { createEmptyPlayer } from '@/domains/models/player.model';
 
 const initialState: GameState = {
   selectedGame: null,
-  players: [{ id: Crypto.randomUUID(), name: '' }],
+  players: [createEmptyPlayer()],
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);

@@ -1,13 +1,13 @@
-import { useTheme } from '@/contexts/ThemeContext';
-import * as Styled from './SetupScreen.styles';
-import { Button, ScreenHeader } from '@/components/ui';
+import { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
-import { useCallback } from 'react';
-import PlayerCard from '@/components/player-card/PlayerCard';
-import { ButtonVariant } from '@/components/ui/button/types.d';
+import * as Styled from './SetupScreen.styles';
+import { useTheme } from '@/contexts/ThemeContext';
 import { useGame } from '@/contexts/GameContext';
-import * as Crypto from 'expo-crypto';
+import { Button, ScreenHeader } from '@/components/ui';
+import { createEmptyPlayer } from '@/domains/models/player.model';
+import { PlayerCard } from '@/components';
+import { ButtonVariant } from '@/components/ui/button/types.d';
 
 export default function SetupScreen() {
   const { theme } = useTheme();
@@ -16,7 +16,7 @@ export default function SetupScreen() {
   const gap = theme.semantic.screen.gap;
 
   const onAddPlayerPress = useCallback(() => {
-    const newPlayer = { id: Crypto.randomUUID(), name: '' };
+    const newPlayer = createEmptyPlayer();
     dispatch({ type: 'ADD_PLAYER', payload: newPlayer });
   }, [dispatch]);
 
