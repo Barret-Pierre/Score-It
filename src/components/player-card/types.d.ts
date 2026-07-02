@@ -1,7 +1,4 @@
-export type Player = {
-  id: string;
-  name: string;
-};
+import { Player } from '@/types/player';
 
 export type PlayerCardProps = {
   player: Player;

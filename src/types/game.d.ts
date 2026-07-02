@@ -1,3 +1,5 @@
+import { Player } from './player';
+
 export type Game = {
   id: string;
   title: string;
@@ -6,9 +8,12 @@ export type Game = {
 
 export type GameState = {
   selectedGame: Game | null;
+  players: Player[];
 };
 
-export type GameAction = { type: 'SELECT_GAME'; payload: Game };
+export type GameAction =
+  | { type: 'SELECT_GAME'; payload: Game }
+  | { type: 'ADD_PLAYER'; payload: Player };
 
 export type GameContextType = {
   state: GameState;
