@@ -2,6 +2,10 @@ import { fireEvent, screen } from '@testing-library/react-native';
 import { renderWithProviders } from '@tests/utils/render.utils';
 import { SetupScreen } from '@/screens';
 
+jest.mock('@/domains/models/player.model', () => ({
+  createEmptyPlayer: jest.fn(() => ({ id: '1', name: '' })),
+}));
+
 describe('SetupScreen', () => {
   beforeEach(() => {
     jest.restoreAllMocks();
@@ -18,10 +22,10 @@ describe('SetupScreen', () => {
     expect(screen.getByTestId('screen-header-custom-subtitle')).toBeTruthy();
   });
 
-  it('should initiate render with one player card', () => {
+  it('should initiate render with no player card', () => {
     renderWithProviders(<SetupScreen />);
-    const playerCards = screen.getAllByTestId(/player-card-\d+/);
-    expect(playerCards).toHaveLength(1);
+    const playerCards = screen.queryAllByTestId(/player-card-\d+/);
+    expect(playerCards).toHaveLength(0);
   });
 
   it('should handle player card press', () => {
@@ -29,6 +33,7 @@ describe('SetupScreen', () => {
 
     renderWithProviders(<SetupScreen />);
 
+    fireEvent.press(screen.getByTestId('add-player-button'));
     fireEvent.press(screen.getByTestId('player-card-1'));
 
     expect(consoleSpy).toHaveBeenCalledWith('pressed player card 1');
@@ -37,11 +42,11 @@ describe('SetupScreen', () => {
   it('should handle add player button press', () => {
     renderWithProviders(<SetupScreen />);
 
-    expect(screen.getAllByTestId(/player-card-\d+/)).toHaveLength(1);
+    expect(screen.queryAllByTestId(/player-card-\d+/)).toHaveLength(0);
 
     fireEvent.press(screen.getByTestId('add-player-button'));
 
-    expect(screen.getAllByTestId(/player-card-\d+/)).toHaveLength(2);
-    expect(screen.getByTestId('player-card-2')).toBeTruthy();
+    expect(screen.getAllByTestId(/player-card-\d+/)).toHaveLength(1);
+    expect(screen.getByTestId('player-card-1')).toBeTruthy();
   });
 });

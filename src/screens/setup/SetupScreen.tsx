@@ -1,23 +1,24 @@
-import { useTheme } from '@/contexts/ThemeContext';
-import * as Styled from './SetupScreen.styles';
-import { Button, ScreenHeader } from '@/components/ui';
+import { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
-import { useCallback, useState } from 'react';
-import PlayerCard from '@/components/player-card/PlayerCard';
+import * as Styled from './SetupScreen.styles';
+import { useTheme } from '@/contexts/ThemeContext';
+import { useGame } from '@/contexts/GameContext';
+import { Button, ScreenHeader } from '@/components/ui';
+import { createEmptyPlayer } from '@/domains/models/player.model';
+import { PlayerCard } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
 
 export default function SetupScreen() {
   const { theme } = useTheme();
-  const [players, setPlayers] = useState([{ id: '1', name: '' }]);
+  const { state, dispatch } = useGame();
 
   const gap = theme.semantic.screen.gap;
 
   const onAddPlayerPress = useCallback(() => {
-    setPlayers((prev) => {
-      return [...prev, { id: String(prev.length + 1), name: '' }];
-    });
-  }, []);
+    const newPlayer = createEmptyPlayer();
+    dispatch({ type: 'ADD_PLAYER', payload: newPlayer });
+  }, [dispatch]);
 
   const handlePlayerCardPress = useCallback((id: string) => {
     console.log(`pressed player card ${id}`);
@@ -31,7 +32,7 @@ export default function SetupScreen() {
         testID="screen-header"
       />
       <FlatList
-        data={players}
+        data={state.players}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ gap }}
         renderItem={({ item }) => (

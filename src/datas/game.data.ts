@@ -1,4 +1,4 @@
-import { Game } from '@/types/game';
+import { Game } from '@/domains/models/game.model';
 
 export const GAMES: Game[] = [
   { id: '1', title: 'Flip 7', image: require('../../assets/flip-7.png') },

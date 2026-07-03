@@ -1,7 +1,4 @@
-export type Player = {
-  id: string;
-  name: string;
-};
+import { Player } from '@/domains/models/player.model';
 
 export type PlayerCardProps = {
   player: Player;

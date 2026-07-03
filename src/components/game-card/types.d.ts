@@ -1,4 +1,4 @@
-import { Game } from '@/types/game';
+import { Game } from '@/domains/models/game.model';
 
 export type GameCardProps = {
   game: Game;
