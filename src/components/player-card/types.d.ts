@@ -1,4 +1,4 @@
-import { Player } from '@/types/player';
+import { Player } from '@/domains/models/player.model';
 
 export type PlayerCardProps = {
   player: Player;
