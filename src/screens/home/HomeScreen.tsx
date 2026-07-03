@@ -7,7 +7,7 @@ import { ScreenHeader } from '@/components/ui';
 import { getGames } from '@/services/game.service';
 import { useGame } from '@/contexts/GameContext';
 import { NavigationProp } from '@/types/navigation';
-import { Game } from '@/types/game';
+import { Game } from '@/domains/models/game.model';
 
 export default function HomeScreen() {
   const navigation = useNavigation<NavigationProp>();
