@@ -16,6 +16,11 @@ tasks:
     cmds:
       - npx jest --coverage --ci
 
+  types:check:
+    desc: Run TypeScript type checking
+    cmds:
+      - npm run typecheck
+
   lint:
     desc: Run ESLint
     cmds:

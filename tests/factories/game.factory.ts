@@ -1,4 +1,4 @@
-import { Game } from '@/types/game';
+import { Game } from '@/domains/models/game.model';
 
 export const createGame = (overrides: Partial<Game> = {}): Game => ({
   id: '1',
