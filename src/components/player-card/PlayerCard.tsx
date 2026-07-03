@@ -3,14 +3,23 @@ import * as Styled from './PlayerCard.styles';
 import { PlayerCardProps } from './types';
 import { useTheme } from '@/contexts/ThemeContext';
 
-export default function PlayerCard({ player, onPress, testID }: Readonly<PlayerCardProps>) {
+export default function PlayerCard({
+  player,
+  onPress,
+  onRemovePress,
+  testID,
+}: Readonly<PlayerCardProps>) {
   const { theme } = useTheme();
 
   return (
     <Styled.Card onPress={onPress} testID={testID}>
       <GripVertical color={theme.semantic.icon.primary} size={theme.semantic.icon.size.md} />
       <Styled.PlayerName>{player.name || `Nom du joueur`}</Styled.PlayerName>
-      <Trash2 color={theme.semantic.text.accent} size={theme.semantic.icon.size.md} />
+      <Trash2
+        color={theme.semantic.text.accent}
+        size={theme.semantic.icon.size.md}
+        onPress={onRemovePress}
+      />
     </Styled.Card>
   );
 }
