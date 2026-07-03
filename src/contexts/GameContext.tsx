@@ -1,11 +1,10 @@
 import { createContext, ReactNode, useContext, useMemo, useReducer } from 'react';
 import { gameReducer } from '@/reducers/game.reducer';
 import { GameContextType, GameState } from '@/domains/models/game.model';
-import { createEmptyPlayer } from '@/domains/models/player.model';
 
 const initialState: GameState = {
   selectedGame: null,
-  players: [createEmptyPlayer()],
+  players: [],
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
