@@ -47,7 +47,7 @@ export default function SetupScreen() {
             player={item}
             onPress={() => handlePlayerCardPress(item.id)}
             onRemovePress={() => onRemovePlayerPress(item.id)}
-            testID={`player-card-${item.id}`}
+            testID={item.id}
           />
         )}
         ListFooterComponent={
