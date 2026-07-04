@@ -1,4 +1,4 @@
-import { Pressable, View } from 'react-native';
+import { Pressable } from 'react-native';
 import { GripVertical, Trash2 } from 'lucide-react-native';
 import * as Styled from './PlayerCard.styles';
 import { PlayerCardProps } from './types';
