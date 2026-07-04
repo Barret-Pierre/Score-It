@@ -9,17 +9,13 @@ describe('GameCard', () => {
   const mockOnPress = jest.fn();
 
   it('should render correctly with default props', () => {
-    renderWithProviders(
-      <GameCard game={mockGame} onPress={mockOnPress} testID={`game-card-${mockGame.id}`} />,
-    );
-    expect(screen.getByTestId(`game-card-${mockGame.id}`)).toBeTruthy();
+    renderWithProviders(<GameCard game={mockGame} onPress={mockOnPress} testID={mockGame.id} />);
+    expect(screen.getByTestId(`game-card:${mockGame.id}`)).toBeTruthy();
   });
 
   it('should render the game title and image correctly', () => {
-    renderWithProviders(
-      <GameCard game={mockGame} onPress={mockOnPress} testID={`game-card-${mockGame.id}`} />,
-    );
-    expect(screen.getByTestId(`game-card-title-${mockGame.id}`)).toBeTruthy();
-    expect(screen.getByTestId(`game-card-image-${mockGame.id}`)).toBeTruthy();
+    renderWithProviders(<GameCard game={mockGame} onPress={mockOnPress} testID={mockGame.id} />);
+    expect(screen.getByTestId(`game-card-title:${mockGame.id}`)).toBeTruthy();
+    expect(screen.getByTestId(`game-card-image:${mockGame.id}`)).toBeTruthy();
   });
 });
