@@ -43,7 +43,7 @@ describe('HomeScreen', () => {
 
   it('should render the good number of game cards', () => {
     renderWithThemeProvider(<HomeScreen />);
-    const gameCards = screen.getAllByTestId(/game-card-\d+/);
+    const gameCards = screen.getAllByTestId(/^game-card:[\w-]+$/);
     expect(gameCards).toHaveLength(mockGames.length);
   });
 
@@ -51,7 +51,7 @@ describe('HomeScreen', () => {
     const firstGame = mockGames[0];
     renderWithThemeProvider(<HomeScreen />);
 
-    fireEvent.press(screen.getByTestId(`game-card-${firstGame.id}`));
+    fireEvent.press(screen.getByTestId(`game-card:${firstGame.id}`));
 
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'SELECT_GAME',

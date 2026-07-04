@@ -20,6 +20,13 @@ export default function SetupScreen() {
     dispatch({ type: 'ADD_PLAYER', payload: newPlayer });
   }, [dispatch]);
 
+  const onRemovePlayerPress = useCallback(
+    (id: string) => {
+      dispatch({ type: 'REMOVE_PLAYER', payload: id });
+    },
+    [dispatch],
+  );
+
   const handlePlayerCardPress = useCallback((id: string) => {
     console.log(`pressed player card ${id}`);
   }, []);
@@ -39,7 +46,8 @@ export default function SetupScreen() {
           <PlayerCard
             player={item}
             onPress={() => handlePlayerCardPress(item.id)}
-            testID={`player-card-${item.id}`}
+            onRemovePress={() => onRemovePlayerPress(item.id)}
+            testID={item.id}
           />
         )}
         ListFooterComponent={

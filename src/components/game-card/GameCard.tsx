@@ -3,15 +3,15 @@ import { GameCardProps } from './types';
 
 export default function GameCard({ game, onPress, testID }: Readonly<GameCardProps>) {
   return (
-    <Styled.Card onPress={onPress} testID={testID}>
+    <Styled.Card onPress={onPress} testID={`game-card:${testID}`}>
       <Styled.CardImageWrapper>
         <Styled.CardImage
           source={game.image}
           resizeMode="cover"
-          testID={`game-card-image-${game.id}`}
+          testID={`game-card-image:${game.id}`}
         ></Styled.CardImage>
       </Styled.CardImageWrapper>
-      <Styled.CardTitle testID={`game-card-title-${game.id}`}>{game.title}</Styled.CardTitle>
+      <Styled.CardTitle testID={`game-card-title:${game.id}`}>{game.title}</Styled.CardTitle>
     </Styled.Card>
   );
 }
