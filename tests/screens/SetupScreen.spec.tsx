@@ -46,7 +46,7 @@ describe('SetupScreen', () => {
 
     renderWithThemeProvider(<SetupScreen />);
 
-    fireEvent.press(screen.getByTestId(`player-card:${mockPlayer.id}`));
+    fireEvent(screen.getByTestId(`player-card:${mockPlayer.id}`), 'longPress');
 
     expect(consoleSpy).toHaveBeenCalledWith(`pressed player card ${mockPlayer.id}`);
   });
