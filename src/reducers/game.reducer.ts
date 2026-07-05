@@ -8,6 +8,13 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       return { ...state, players: [...state.players, action.payload] };
     case 'REMOVE_PLAYER':
       return { ...state, players: state.players.filter((player) => player.id !== action.payload) };
+    case 'UPDATE_PLAYER':
+      return {
+        ...state,
+        players: state.players.map((player) =>
+          player.id === action.payload.id ? action.payload : player,
+        ),
+      };
     default:
       throw new Error('Action inconnue');
   }

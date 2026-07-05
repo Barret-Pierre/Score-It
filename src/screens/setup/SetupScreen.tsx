@@ -5,7 +5,7 @@ import * as Styled from './SetupScreen.styles';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useGame } from '@/contexts/GameContext';
 import { Button, ScreenHeader } from '@/components/ui';
-import { createEmptyPlayer } from '@/domains/models/player.model';
+import { createEmptyPlayer, Player } from '@/domains/models/player.model';
 import { PlayerCard } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
 
@@ -27,7 +27,14 @@ export default function SetupScreen() {
     [dispatch],
   );
 
-  const handlePlayerCardPress = useCallback((id: string) => {
+  const onUpdatePlayer = useCallback(
+    (player: Player) => {
+      dispatch({ type: 'UPDATE_PLAYER', payload: player });
+    },
+    [dispatch],
+  );
+
+  const handlePlayerCardLongPress = useCallback((id: string) => {
     console.log(`pressed player card ${id}`);
   }, []);
 
@@ -42,11 +49,14 @@ export default function SetupScreen() {
         data={state.players}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ gap }}
+        keyboardShouldPersistTaps="handled"
+        removeClippedSubviews={false}
         renderItem={({ item }) => (
           <PlayerCard
             player={item}
-            onPress={() => handlePlayerCardPress(item.id)}
+            onLongPress={() => handlePlayerCardLongPress(item.id)}
             onRemovePress={() => onRemovePlayerPress(item.id)}
+            onUpdatePlayer={onUpdatePlayer}
             testID={item.id}
           />
         )}

@@ -14,7 +14,8 @@ export type GameState = {
 export type GameAction =
   | { type: 'SELECT_GAME'; payload: Game }
   | { type: 'ADD_PLAYER'; payload: Player }
-  | { type: 'REMOVE_PLAYER'; payload: Player['id'] };
+  | { type: 'REMOVE_PLAYER'; payload: Player['id'] }
+  | { type: 'UPDATE_PLAYER'; payload: Player };
 
 export type GameContextType = {
   state: GameState;

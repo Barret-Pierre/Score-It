@@ -22,10 +22,10 @@ export const Card = styled.Pressable`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.semantic.cards.bg};
-  border-radius: ${({ theme }) => theme.semantic.cards.borderRadius}px;
-  border-width: ${({ theme }) => theme.semantic.cards.borderWeight}px;
-  border-color: ${({ theme }) => theme.semantic.cards.borderColor};
-  padding: ${({ theme }) => theme.semantic.cards.padding}px;
-  gap: ${({ theme }) => theme.semantic.cards.gap}px;
+  background-color: ${({ theme }) => theme.semantic.cards.common.bg};
+  border-radius: ${({ theme }) => theme.semantic.cards.common.borderRadius}px;
+  border-width: ${({ theme }) => theme.semantic.cards.common.borderWeight}px;
+  border-color: ${({ theme }) => theme.semantic.cards.common.borderColor};
+  padding: ${({ theme }) => theme.semantic.cards.common.padding}px;
+  gap: ${({ theme }) => theme.semantic.cards.common.gap}px;
 `;

@@ -141,34 +141,23 @@ export const header = {
 export const bottom = {
   bg: primitives.colors.white,
   padding: primitives.spacing.md,
-  borderWeight: primitives.border.weight[1],
+  borderWeight: primitives.border.weight[2],
   borderColor: primitives.colors.graphite[50],
 } as const;
 
 export const cards = {
-  bg: primitives.colors.white,
-  padding: primitives.spacing.md,
-  borderRadius: primitives.radius.rounded,
-  borderWeight: primitives.border.weight[1],
-  borderColor: primitives.colors.graphite[50],
-  gap: primitives.spacing.sm,
+  common: {
+    bg: primitives.colors.white,
+    padding: primitives.spacing.md,
+    borderRadius: primitives.radius.rounded,
+    borderWeight: primitives.border.weight[2],
+    borderColor: primitives.colors.graphite[50],
+    gap: primitives.spacing.sm,
+  },
+  focused: {
+    borderColor: primitives.colors.pink[500],
+  },
 } as const;
-
-// export const buttons = {
-//   bg: primitives.colors.pink[500],
-//   paddingHorizontal: primitives.spacing.xl,
-//   paddingVertical: primitives.spacing.md,
-//   borderRadius: primitives.radius.rounded,
-//   gap: primitives.spacing.sm,
-
-//   disabled: {
-//     bg: primitives.colors.graphite[50],
-//   },
-
-//   active: {
-//     bg: primitives.colors.pink[600],
-//   },
-// } as const;
 
 export const buttons = {
   default: {
