@@ -30,6 +30,16 @@ describe('gameReducer', () => {
     expect(result.players).toEqual([player2]);
   });
 
+  it('should handle action where a player name is updated', () => {
+    const player1 = createPlayer({ id: '1', name: 'Old Name' });
+    const player2 = createPlayer({ id: '2' });
+    const result = gameReducer(
+      { selectedGame: null, players: [player1, player2] },
+      { type: 'UPDATE_PLAYER', payload: { id: player1.id, name: 'New Name' } },
+    );
+    expect(result.players).toEqual([{ ...player1, name: 'New Name' }, player2]);
+  });
+
   it('should throw an error for unknown action', () => {
     expect(() =>
       gameReducer({ selectedGame: null, players: [] }, {
