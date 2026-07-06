@@ -10,6 +10,7 @@ import { PlayerCard } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
 
 const MAX_PLAYERS = 5;
+const MIN_PLAYERS = 3;
 
 export default function SetupScreen() {
   const { theme } = useTheme();
@@ -39,20 +40,21 @@ export default function SetupScreen() {
     [dispatch],
   );
 
+  //! Déplacer dans la partie domaine du projet.
   const isSessionFull = useMemo(() => state.players.length === MAX_PLAYERS, [state]);
 
   const customSubtitle = useMemo(() => {
-    if (state.numberOfPlayersReady > 3 && state.numberOfPlayersReady < MAX_PLAYERS) {
-      return (
-        <Styled.CustomSubtitle>
-          {state.numberOfPlayersReady} joueurs sur {MAX_PLAYERS}
-        </Styled.CustomSubtitle>
-      );
-    }
     if (state.numberOfPlayersReady === MAX_PLAYERS) {
       return <Styled.CustomSubtitle>Session complète</Styled.CustomSubtitle>;
     }
-    return <Styled.CustomSubtitle>3 joueurs minimum</Styled.CustomSubtitle>;
+    if (state.players.length >= MIN_PLAYERS && state.numberOfPlayersReady >= MIN_PLAYERS) {
+      return (
+        <Styled.CustomSubtitle>
+          {state.numberOfPlayersReady} joueurs sur {MAX_PLAYERS} prêts
+        </Styled.CustomSubtitle>
+      );
+    }
+    return <Styled.CustomSubtitle>{MIN_PLAYERS} joueurs minimum</Styled.CustomSubtitle>;
   }, [state]);
 
   const handlePlayerCardLongPress = useCallback((id: string) => {
