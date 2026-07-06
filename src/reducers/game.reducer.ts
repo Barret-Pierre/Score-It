@@ -15,6 +15,11 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
           player.id === action.payload.id ? action.payload : player,
         ),
       };
+    case 'CALCULATE_NUMBER_OF_PLAYERS_READY':
+      return {
+        ...state,
+        numberOfPlayersReady: state.players.filter((player) => player.name).length,
+      };
     default:
       throw new Error('Action inconnue');
   }

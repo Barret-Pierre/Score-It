@@ -9,13 +9,15 @@ export type Game = {
 export type GameState = {
   selectedGame: Game | null;
   players: Player[];
+  numberOfPlayersReady: number;
 };
 
 export type GameAction =
   | { type: 'SELECT_GAME'; payload: Game }
   | { type: 'ADD_PLAYER'; payload: Player }
   | { type: 'REMOVE_PLAYER'; payload: Player['id'] }
-  | { type: 'UPDATE_PLAYER'; payload: Player };
+  | { type: 'UPDATE_PLAYER'; payload: Player }
+  | { type: 'CALCULATE_NUMBER_OF_PLAYERS_READY' };
 
 export type GameContextType = {
   state: GameState;

@@ -5,6 +5,7 @@ import { GameContextType, GameState } from '@/domains/models/game.model';
 const initialState: GameState = {
   selectedGame: null,
   players: [],
+  numberOfPlayersReady: 0,
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
