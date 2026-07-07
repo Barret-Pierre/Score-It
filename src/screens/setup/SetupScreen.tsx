@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { FlatList, ScrollViewProps } from 'react-native';
+import { FlatList } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
 import * as Styled from './SetupScreen.styles';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -12,10 +12,6 @@ import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
 const MAX_PLAYERS = 10;
 const MIN_PLAYERS = 3;
-
-// const RenderScrollComponent = forwardRef<ScrollView, ScrollViewProps>((props, ref) => (
-//   <KeyboardAwareScrollView {...props} ref={ref} />
-// ));
 
 export default function SetupScreen() {
   const { theme } = useTheme();
@@ -67,8 +63,7 @@ export default function SetupScreen() {
   }, []);
 
   return (
-    //! utiliser keaboardAwareScrollView de expo pour gérer le clavier et le scroll de la liste des joueurs.
-    <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={104} style={{ flex: 1 }}>
+    <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={90} style={{ flex: 1 }}>
       <Styled.Container testID="setup-screen">
         <ScreenHeader
           title="Ajouter des joueurs"

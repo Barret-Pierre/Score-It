@@ -1,7 +1,6 @@
 import { styled } from 'styled-components/native';
 
 export const Card = styled.Pressable<{ $focused: boolean }>`
-  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -11,14 +10,15 @@ export const Card = styled.Pressable<{ $focused: boolean }>`
   border-width: ${({ theme }) => theme.semantic.cards.common.borderWeight}px;
   border-color: ${({ theme, $focused }) =>
     $focused ? theme.semantic.cards.focused.borderColor : theme.semantic.cards.common.borderColor};
-  padding: ${({ theme }) => theme.semantic.cards.common.padding}px;
+  padding-horizontal: ${({ theme }) => theme.semantic.cards.common.padding}px;
   gap: ${({ theme }) => theme.semantic.cards.common.gap}px;
 `;
 
 export const PlayerNameInput = styled.TextInput`
-  placeholdertextcolor: ${({ theme }) => theme.semantic.text.placeholder};
   color: ${({ theme }) => theme.semantic.text.primary};
-  margin: 0px;
-  padding: 0px;
+  font-family: ${({ theme }) => theme.semantic.typography.body.md.fontFamily};
+  font-size: ${({ theme }) => theme.semantic.typography.body.md}px;
+  line-height: ${({ theme }) => theme.semantic.typography.body.md.lineHeight}px;
+  padding-vertical: ${({ theme }) => theme.semantic.cards.common.padding}px;
   flex: 1;
 `;
