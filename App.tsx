@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { RootNavigator } from '@/navigations';
 import { GameProvider } from '@/contexts/GameContext';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,10 +23,12 @@ export default function App() {
   return (
     <ThemeProvider>
       <GameProvider>
-        <NavigationContainer>
-          <RootNavigator />
-          <StatusBar style="auto" />
-        </NavigationContainer>
+        <KeyboardProvider>
+          <NavigationContainer>
+            <RootNavigator />
+            <StatusBar style="auto" />
+          </NavigationContainer>
+        </KeyboardProvider>
       </GameProvider>
     </ThemeProvider>
   );

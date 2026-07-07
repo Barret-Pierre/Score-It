@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ScrollViewProps } from 'react-native';
 import { SquarePlus } from 'lucide-react-native';
 import * as Styled from './SetupScreen.styles';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -8,9 +8,14 @@ import { Button, ScreenHeader } from '@/components/ui';
 import { createEmptyPlayer, Player } from '@/domains/models/player.model';
 import { PlayerCard } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
+import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
-const MAX_PLAYERS = 5;
+const MAX_PLAYERS = 10;
 const MIN_PLAYERS = 3;
+
+// const RenderScrollComponent = forwardRef<ScrollView, ScrollViewProps>((props, ref) => (
+//   <KeyboardAwareScrollView {...props} ref={ref} />
+// ));
 
 export default function SetupScreen() {
   const { theme } = useTheme();
@@ -62,38 +67,39 @@ export default function SetupScreen() {
   }, []);
 
   return (
-    <Styled.Container testID="setup-screen">
-      <ScreenHeader
-        title="Ajouter des joueurs"
-        customSubtitle={customSubtitle}
-        testID="screen-header"
-      />
-      <FlatList
-        data={state.players}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={{ gap }}
-        keyboardShouldPersistTaps="handled"
-        removeClippedSubviews={false}
-        renderItem={({ item }) => (
-          <PlayerCard
-            player={item}
-            onLongPress={() => handlePlayerCardLongPress(item.id)}
-            onRemovePress={() => onRemovePlayerPress(item.id)}
-            onUpdatePlayer={onUpdatePlayer}
-            testID={item.id}
-          />
-        )}
-        ListFooterComponent={
-          isSessionFull === false ? (
-            <Button
-              icon={SquarePlus}
-              onPress={onAddPlayerPress}
-              testID="add-player-button"
-              variant={ButtonVariant.DASHED}
+    //! utiliser keaboardAwareScrollView de expo pour gérer le clavier et le scroll de la liste des joueurs.
+    <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={104} style={{ flex: 1 }}>
+      <Styled.Container testID="setup-screen">
+        <ScreenHeader
+          title="Ajouter des joueurs"
+          customSubtitle={customSubtitle}
+          testID="screen-header"
+        />
+        <FlatList
+          data={state.players}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{ gap }}
+          renderItem={({ item }) => (
+            <PlayerCard
+              player={item}
+              onLongPress={() => handlePlayerCardLongPress(item.id)}
+              onRemovePress={() => onRemovePlayerPress(item.id)}
+              onUpdatePlayer={onUpdatePlayer}
+              testID={item.id}
             />
-          ) : null
-        }
-      />
-    </Styled.Container>
+          )}
+          ListFooterComponent={
+            isSessionFull === false ? (
+              <Button
+                icon={SquarePlus}
+                onPress={onAddPlayerPress}
+                testID="add-player-button"
+                variant={ButtonVariant.DASHED}
+              />
+            ) : null
+          }
+        />
+      </Styled.Container>
+    </KeyboardAvoidingView>
   );
 }
