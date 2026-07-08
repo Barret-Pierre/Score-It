@@ -10,12 +10,9 @@ import { PlayerCard } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
-const MAX_PLAYERS = 10;
-const MIN_PLAYERS = 3;
-
 export default function SetupScreen() {
   const { theme } = useTheme();
-  const { state, dispatch } = useGame();
+  const { state, dispatch, engine } = useGame();
 
   const gap = theme.semantic.screen.gap;
 
@@ -42,21 +39,26 @@ export default function SetupScreen() {
   );
 
   //! Déplacer dans la partie domaine du projet.
-  const isSessionFull = useMemo(() => state.players.length === MAX_PLAYERS, [state]);
+  const isSessionFull = useMemo(() => state.players.length === engine?.maxPlayers, [state, engine]);
 
   const customSubtitle = useMemo(() => {
-    if (state.numberOfPlayersReady === MAX_PLAYERS) {
+    if (!engine) return <Styled.CustomSubtitle>Sélectionnez un jeu</Styled.CustomSubtitle>;
+
+    if (state.numberOfPlayersReady === engine.maxPlayers) {
       return <Styled.CustomSubtitle>Session complète</Styled.CustomSubtitle>;
     }
-    if (state.players.length >= MIN_PLAYERS && state.numberOfPlayersReady >= MIN_PLAYERS) {
+    if (
+      state.players.length >= engine.minPlayers &&
+      state.numberOfPlayersReady >= engine.minPlayers
+    ) {
       return (
         <Styled.CustomSubtitle>
-          {state.numberOfPlayersReady} joueurs sur {MAX_PLAYERS} prêts
+          {state.numberOfPlayersReady} joueurs sur {engine.maxPlayers} prêts
         </Styled.CustomSubtitle>
       );
     }
-    return <Styled.CustomSubtitle>{MIN_PLAYERS} joueurs minimum</Styled.CustomSubtitle>;
-  }, [state]);
+    return <Styled.CustomSubtitle>{engine.minPlayers} joueurs minimum</Styled.CustomSubtitle>;
+  }, [state, engine]);
 
   const handlePlayerCardLongPress = useCallback((id: string) => {
     console.log(`pressed player card ${id}`);

@@ -1,3 +1,4 @@
+import { Engine } from './engine.model';
 import { Player } from './player.model';
 
 export type Game = {
@@ -22,4 +23,5 @@ export type GameAction =
 export type GameContextType = {
   state: GameState;
   dispatch: React.Dispatch<GameAction>;
+  engine: Engine | null;
 };
