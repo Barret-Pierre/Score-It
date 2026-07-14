@@ -6,7 +6,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useGame } from '@/contexts/GameContext';
 import { Button, ScreenHeader } from '@/components/ui';
 import { createEmptyPlayer, Player } from '@/domains/models/player.model';
-import { PlayerCard } from '@/components';
+import { PlayerCard, SetupSubtitle } from '@/components';
 import { ButtonVariant } from '@/components/ui/button/types.d';
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 
@@ -38,27 +38,11 @@ export default function SetupScreen() {
     [dispatch],
   );
 
-  //! Déplacer dans la partie domaine du projet.
-  const isSessionFull = useMemo(() => state.players.length === engine?.maxPlayers, [state, engine]);
-
-  const customSubtitle = useMemo(() => {
-    if (!engine) return <Styled.CustomSubtitle>Sélectionnez un jeu</Styled.CustomSubtitle>;
-
-    if (state.numberOfPlayersReady === engine.maxPlayers) {
-      return <Styled.CustomSubtitle>Session complète</Styled.CustomSubtitle>;
-    }
-    if (
-      state.players.length >= engine.minPlayers &&
-      state.numberOfPlayersReady >= engine.minPlayers
-    ) {
-      return (
-        <Styled.CustomSubtitle>
-          {state.numberOfPlayersReady} joueurs sur {engine.maxPlayers} prêts
-        </Styled.CustomSubtitle>
-      );
-    }
-    return <Styled.CustomSubtitle>{engine.minPlayers} joueurs minimum</Styled.CustomSubtitle>;
-  }, [state, engine]);
+  const isSessionFull = useMemo(() => engine?.isSessionFull(state.players.length), [state, engine]);
+  const isSessionReady = useMemo(
+    () => engine?.isReady(state.players.length, state.numberOfPlayersReady),
+    [state, engine],
+  );
 
   const handlePlayerCardLongPress = useCallback((id: string) => {
     console.log(`pressed player card ${id}`);
@@ -69,7 +53,16 @@ export default function SetupScreen() {
       <Styled.Container testID="setup-screen">
         <ScreenHeader
           title="Ajouter des joueurs"
-          customSubtitle={customSubtitle}
+          customSubtitle={
+            <SetupSubtitle
+              isEngineReady={engine != null}
+              isSessionFull={isSessionFull ?? false}
+              isSessionReady={isSessionReady ?? false}
+              numberOfPlayersReady={state.numberOfPlayersReady}
+              maxPlayers={engine?.maxPlayers ?? 0}
+              minPlayers={engine?.minPlayers ?? 0}
+            />
+          }
           testID="screen-header"
         />
         <FlatList
@@ -86,7 +79,7 @@ export default function SetupScreen() {
             />
           )}
           ListFooterComponent={
-            isSessionFull === false ? (
+            !isSessionFull ? (
               <Button
                 icon={SquarePlus}
                 onPress={onAddPlayerPress}

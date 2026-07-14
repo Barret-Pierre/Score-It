@@ -11,8 +11,4 @@ export const Flip7Engine: Engine = {
   isReady(playerCount: number, readyCount: number): boolean {
     return playerCount >= this.minPlayers && readyCount >= this.minPlayers;
   },
-
-  getReadyCount(players: { name: string }[]): number {
-    return players.filter((player) => player.name).length;
-  },
 };
