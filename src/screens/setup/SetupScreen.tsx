@@ -38,9 +38,16 @@ export default function SetupScreen() {
     [dispatch],
   );
 
-  const isSessionFull = useMemo(() => engine?.isSessionFull(state.players.length), [state, engine]);
+  const isMaxPlayerReached = useMemo(
+    () => engine?.isMaxPlayerReached(state.players.length),
+    [state, engine],
+  );
+  const isMinPlayerReadyReached = useMemo(
+    () => engine?.isMinPlayerReadyReached(state.numberOfPlayersReady),
+    [state, engine],
+  );
   const isSessionReady = useMemo(
-    () => engine?.isReady(state.players.length, state.numberOfPlayersReady),
+    () => engine?.isSessionReady(state.players.length, state.numberOfPlayersReady),
     [state, engine],
   );
 
@@ -56,10 +63,10 @@ export default function SetupScreen() {
           customSubtitle={
             <SetupSubtitle
               isEngineReady={engine != null}
-              isSessionFull={isSessionFull ?? false}
+              isMinPlayerReadyReached={isMinPlayerReadyReached ?? false}
               isSessionReady={isSessionReady ?? false}
-              numberOfPlayersReady={state.numberOfPlayersReady}
-              maxPlayers={engine?.maxPlayers ?? 0}
+              playersReadyCount={state.numberOfPlayersReady}
+              playerCount={state.players.length}
               minPlayers={engine?.minPlayers ?? 0}
             />
           }
@@ -79,7 +86,7 @@ export default function SetupScreen() {
             />
           )}
           ListFooterComponent={
-            !isSessionFull ? (
+            !isMaxPlayerReached ? (
               <Button
                 icon={SquarePlus}
                 onPress={onAddPlayerPress}

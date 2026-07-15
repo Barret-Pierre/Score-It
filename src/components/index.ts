@@ -4,4 +4,4 @@ export { default as GameCard } from './game-card/GameCard';
 export { default as GameFlowHeader } from './game-flow-header/GameFlowHeader';
 export { default as GameFlowBottomBar } from './game-flow-bottom-bar/GameFlowBottomBar';
 export { default as PlayerCard } from './player-card/PlayerCard';
-export { default as SetupSubtitle } from './setup-subtitle/setup-subtitle';
+export { default as SetupSubtitle } from './setup-subtitle/SetupSubtitle';

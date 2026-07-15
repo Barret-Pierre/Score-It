@@ -1,8 +1,9 @@
 export type Engine = {
   maxPlayers: number;
   minPlayers: number;
-  isSessionFull(playerCount: number): boolean;
-  isReady(playerCount: number, readyCount: number): boolean;
+  isMaxPlayerReached(playerCount: number): boolean;
+  isMinPlayerReadyReached(readyCount: number): boolean;
+  isSessionReady(playerCount: number, readyCount: number): boolean;
 };
 
 export type GameEngine = {

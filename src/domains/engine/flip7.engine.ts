@@ -1,14 +1,18 @@
 import { Engine } from '@/domains/models/engine.model';
 
 export const Flip7Engine: Engine = {
-  maxPlayers: 10,
+  maxPlayers: 5,
   minPlayers: 3,
 
-  isSessionFull(playerCount: number): boolean {
+  isMaxPlayerReached(playerCount: number): boolean {
     return playerCount >= this.maxPlayers;
   },
 
-  isReady(playerCount: number, readyCount: number): boolean {
-    return playerCount >= this.minPlayers && readyCount >= this.minPlayers;
+  isMinPlayerReadyReached(readyCount: number): boolean {
+    return readyCount >= this.minPlayers;
+  },
+
+  isSessionReady(playerCount: number, readyCount: number): boolean {
+    return playerCount === readyCount && readyCount >= this.minPlayers;
   },
 };
