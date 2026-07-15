@@ -39,15 +39,16 @@ export default function SetupScreen() {
   );
 
   const isMaxPlayerReached = useMemo(
-    () => engine?.isMaxPlayerReached(state.players.length),
+    () => (engine ? engine.isMaxPlayerReached(state.players.length) : false),
     [state, engine],
   );
   const isMinPlayerReadyReached = useMemo(
-    () => engine?.isMinPlayerReadyReached(state.numberOfPlayersReady),
+    () => (engine ? engine.isMinPlayerReadyReached(state.numberOfPlayersReady) : false),
     [state, engine],
   );
   const isSessionReady = useMemo(
-    () => engine?.isSessionReady(state.players.length, state.numberOfPlayersReady),
+    () =>
+      engine ? engine.isSessionReady(state.players.length, state.numberOfPlayersReady) : false,
     [state, engine],
   );
 
@@ -63,8 +64,8 @@ export default function SetupScreen() {
           customSubtitle={
             <SetupSubtitle
               isEngineReady={engine != null}
-              isMinPlayerReadyReached={isMinPlayerReadyReached ?? false}
-              isSessionReady={isSessionReady ?? false}
+              isMinPlayerReadyReached={isMinPlayerReadyReached}
+              isSessionReady={isSessionReady}
               playersReadyCount={state.numberOfPlayersReady}
               playerCount={state.players.length}
               minPlayers={engine?.minPlayers ?? 0}
